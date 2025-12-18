@@ -1,0 +1,213 @@
+﻿---
+layout: base.njk
+styles:
+- contribute.css?v=2
+- lesson-editor.css?v=10
+- tip-box-fix.css
+scripts:
+- contribute.js
+- lesson-editor.js
+- carousel-universal.js
+---
+
+<div class="content contribute-page">
+    <!-- Compact Header for Mobile Edit Mode -->
+    <div class="compact-header">
+        <a href="/" class="compact-back-btn">
+            <i class="fas fa-times"></i>
+        </a>
+        <span style="font-weight: 600;">Editar Lección</span>
+        <button type="button"
+            onclick="document.getElementById('lessonEditForm').dispatchEvent(new Event('submit', {cancelable: true, bubbles: true}))"
+            class="btn-text" style="color: #667eea; font-weight: 600; background: none; border: none; font-size: 1rem;">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+    <div class="page-header">
+        <!-- Contribution Type Selection -->
+        <!-- Contribution Type Selection -->
+        <!-- Contribution Selection (Selection Cards) -->
+        <div id="selectionContainer" class="selection-container">
+            <h2 class="text-center mb-4"> ¡Ayuda a tu comunidad!</h2>
+
+            <div class="selection-grid">
+                <button class="selection-card" onclick="selectContributionType('lesson')">
+                    <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Crear Lección</h3>
+                    <p>Crea una lección completa con formato profesional, secciones y explicaciones.</p>
+                </button>
+
+                <button class="selection-card" onclick="selectContributionType('book')">
+                    <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Compartir Libro</h3>
+                    <p>Comparte un enlace a un libro o recurso PDF útil para la comunidad.</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Lesson Creation Form (SIMPLIFIED) -->
+        <form id="lessonEditForm" class="contribution-form" style="display: none;">
+            <div class="form-header-actions">
+                <button type="button" class="btn-text-back" onclick="showSelection()">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </button>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="lessonTitle">Título de la Lección *</label>
+                    <input type="text" id="lessonTitle" required placeholder="Ej: Presente Simple - Nivel A1">
+                </div>
+
+                <div class="form-group">
+                    <label for="lessonLevel">Nivel *</label>
+                    <select id="lessonLevel" required>
+                        <option value="">Seleccionar nivel</option>
+                        <option value="A1">A1 - Principiante</option>
+                        <option value="A2">A2 - Elemental</option>
+                        <option value="B1">B1 - Intermedio</option>
+                        <option value="B2">B2 - Intermedio Alto</option>
+                        <option value="C1">C1 - Avanzado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lessonDescription">Descripción Breve *</label>
+                <textarea id="lessonDescription" required rows="2"
+                    placeholder="Breve descripción de qué trata la lección..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Contenido de la Lección *</label>
+                <div class="lesson-editor">
+                    <div id="lessonContentEditor">
+                        <h2>Título de la Sección</h2>
+                        <p>Escribe aquí el contenido de tu lección...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <button type="button" class="btn-secondary" onclick="window.location.href='/'">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </form>
+
+        <!-- Book Upload Form (UNCHANGED) -->
+        <form id="bookUploadForm" class="contribution-form" style="display: none;">
+            <div class="form-header-actions">
+                <button type="button" class="btn-text-back" onclick="showSelection()">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </button>
+
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Nota:</strong> Solo compartimos enlaces a libros. No subimos archivos directamente para
+                    ahorrar
+                    espacio en el servidor.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="bookTitle">Título del Libro *</label>
+                <input type="text" id="bookTitle" required placeholder="Ej: Gramática Turca Completa">
+            </div>
+
+            <div class="form-group">
+                <label for="bookAuthor">Autor *</label>
+                <input type="text" id="bookAuthor" required placeholder="Nombre del autor">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bookLevel">Nivel *</label>
+                    <select id="bookLevel" required>
+                        <option value="">Seleccionar nivel</option>
+                        <option value="A1">A1 - Principiante</option>
+                        <option value="A2">A2 - Elemental</option>
+                        <option value="B1">B1 - Intermedio</option>
+                        <option value="B2">B2 - Intermedio Alto</option>
+                        <option value="C1">C1 - Avanzado</option>
+                        <option value="Todos">Todos los niveles</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookCategory">Categoría *</label>
+                    <select id="bookCategory" required>
+                        <option value="">Seleccionar categoría</option>
+                        <option value="Gramática">Gramática</option>
+                        <option value="Vocabulario">Vocabulario</option>
+                        <option value="Lectura">Lectura</option>
+                        <option value="Ejercicios">Ejercicios</option>
+                        <option value="Cultura">Cultura</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="bookUrl">Enlace al Libro *</label>
+                <input type="url" id="bookUrl" required placeholder="https://ejemplo.com/libro.pdf">
+                <small>Google Drive, Dropbox, o cualquier enlace público</small>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bookFormat">Formato *</label>
+                    <select id="bookFormat" required>
+                        <option value="">Seleccionar formato</option>
+                        <option value="PDF">PDF</option>
+                        <option value="EPUB">EPUB</option>
+                        <option value="MOBI">MOBI</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookSize">Tamaño Aproximado</label>
+                    <input type="text" id="bookSize" placeholder="Ej: 5 MB">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="bookDescription">Descripción *</label>
+                <textarea id="bookDescription" required rows="4"
+                    placeholder="Describe el contenido del libro y por qué es útil..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="bookLanguage">Idioma del Libro *</label>
+                <select id="bookLanguage" required>
+                    <option value="">Seleccionar idioma</option>
+                    <option value="Español">Español</option>
+                    <option value="Turco">Turco</option>
+                    <option value="Inglés">Inglés</option>
+                    <option value="Bilingüe">Bilingüe</option>
+                </select>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Enviar Propuesta
+                </button>
+                <button type="button" class="btn-secondary" onclick="window.location.href='/'">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </form>
+
+        <!-- My Contributions Section -->
+        <div class="my-contributions">
+            <h2><i class="fas fa-list"></i> Mis Contribuciones</h2>
+            <div id="myContributionsList" class="contributions-list">
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,93 @@
+---
+layout: base.njk
+styles:
+- Communit-lessons.css
+- contribute.css
+- lesson-editor.css
+scripts:
+- contribution-service.js
+- community.js
+---
+
+<div class="content contribute-page">
+
+
+    <!-- Search and Filter Section -->
+    <div class="community-controls">
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="communitySearch" placeholder="Buscar lecciones o libros...">
+        </div>
+
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-level="all">Todas</button>
+            <button class="filter-tab" data-level="A1">A1</button>
+            <button class="filter-tab" data-level="A2">A2</button>
+            <button class="filter-tab" data-level="B1">B1</button>
+            <button class="filter-tab" data-level="B2">B2</button>
+            <button class="filter-tab" data-level="C1">C1</button>
+        </div>
+    </div>
+
+    <!-- Contribute Button -->
+    <!-- Contribute Button -->
+    <div class="contribution-cta">
+        <h3>¿Quieres contribuir?</h3>
+        <a href="/Contribute/" id="communityCreateBtn" class="btn btn-primary">
+            <i class="fas fa-plus"></i>
+            Crear Nueva Lección
+        </a>
+    </div>
+
+    <!-- Books Section (Dynamic) -->
+    <div id="booksSection" class="books-section">
+        <h2 class="section-title">
+            <i class="fas fa-book"></i> Libros del Nivel
+        </h2>
+        <div id="booksGrid" class="books-grid">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- Lessons List -->
+    <div id="lessonsList" class="contributions-list">
+        <!-- Will be populated by JavaScript -->
+    </div>
+</div>
+
+<!-- Lesson Detail Modal -->
+<div class="modal" id="lessonModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="lessonTitle">Lesson Title</h2>
+            <button class="close-modal" onclick="closeLessonModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="modal-body" id="lessonBody">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal" id="deleteConfirmModal">
+    <div class="modal-content confirm-modal" style="max-width: 400px; text-align: center;">
+        <div class="modal-header" style="justify-content: center; border: none; padding-bottom: 5px;">
+            <div style="width: 60px; height: 60px; background: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #ef4444;"></i>
+            </div>
+        </div>
+        <h3 style="margin-bottom: 10px; color: #1f2937;">¿Eliminar Lección?</h3>
+        <p style="color: #6b7280; margin-bottom: 25px;">
+            Esta acción no se puede deshacer. La lección se eliminará permanentemente.
+        </p>
+        <div class="modal-actions" style="justify-content: center; gap: 15px;">
+            <button class="btn-cancel" onclick="closeDeleteModal()" style="padding: 10px 20px;">Cancelar</button>
+            <button id="confirmDeleteBtn" class="btn-confirm" style="background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+                Sí, Eliminar
+            </button>
+        </div>
+    </div>
+</div>

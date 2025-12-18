@@ -1,0 +1,235 @@
+---
+layout: base.njk
+styles:
+- admin-contributions.css
+scripts:
+- lesson-editor.js
+- admin-contributions.js
+---
+
+<div class="content admin-page">
+    <div class="page-header">
+
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-clock"></i>
+            <div class="stat-content">
+                <h3 id="statPending">0</h3>
+                <p>Pendientes</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-check-circle"></i>
+            <div class="stat-content">
+                <h3 id="statApproved">0</h3>
+                <p>Aprobadas</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-times-circle"></i>
+            <div class="stat-content">
+                <h3 id="statRejected">0</h3>
+                <p>Rechazadas</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-list"></i>
+            <div class="stat-content">
+                <h3 id="statTotal">0</h3>
+                <p>Total</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">
+            Todas <span class="badge" id="badgeAll">0</span>
+        </button>
+        <button class="filter-tab" data-filter="lesson_edit">
+            Lecciones <span class="badge" id="badgeLessons">0</span>
+        </button>
+        <button class="filter-tab" data-filter="book_upload">
+            Libros <span class="badge" id="badgeBooks">0</span>
+        </button>
+    </div>
+
+    <!-- Requests List -->
+    <div class="requests-section">
+        <div class="section-header">
+            <h2><i class="fas fa-inbox"></i> Solicitudes Pendientes</h2>
+            <button class="btn-refresh" onclick="loadRequests()">
+                <i class="fas fa-sync-alt"></i> Actualizar
+            </button>
+        </div>
+
+        <div id="requestsList" class="requests-list">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Request Detail Modal -->
+<div class="modal" id="requestModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Detalles de la Solicitud</h2>
+            <button class="close-modal" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="modal-body" id="modalBody">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-approve" id="approveBtn">
+                <i class="fas fa-check"></i> Aprobar
+            </button>
+            <button class="btn-reject" id="rejectBtn">
+                <i class="fas fa-times"></i> Rechazar
+            </button>
+            <button class="btn-cancel" onclick="closeModal()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal" id="confirmModal">
+    <div class="modal-content confirm-modal">
+        <div class="modal-header">
+            <h2 id="confirmTitle">Confirmar Acción</h2>
+        </div>
+
+        <div class="modal-body">
+            <p id="confirmMessage"></p>
+            <div class="form-group" id="reasonGroup" style="display:none;">
+                <label for="rejectionReason">Razón del rechazo (opcional):</label>
+                <textarea id="rejectionReason" rows="3" --- layout: base.njk styles: - admin-contributions.css scripts:
+                    - admin-contributions.js --- <div class="content admin-page">
+    <div class="page-header">
+
+    </div>
+
+    <!-- Stats Overview -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-clock"></i>
+            <div class="stat-content">
+                <h3 id="statPending">0</h3>
+                <p>Pendientes</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-check-circle"></i>
+            <div class="stat-content">
+                <h3 id="statApproved">0</h3>
+                <p>Aprobadas</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-times-circle"></i>
+            <div class="stat-content">
+                <h3 id="statRejected">0</h3>
+                <p>Rechazadas</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-list"></i>
+            <div class="stat-content">
+                <h3 id="statTotal">0</h3>
+                <p>Total</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">
+            Todas <span class="badge" id="badgeAll">0</span>
+        </button>
+        <button class="filter-tab" data-filter="lesson_edit">
+            Lecciones <span class="badge" id="badgeLessons">0</span>
+        </button>
+        <button class="filter-tab" data-filter="book_upload">
+            Libros <span class="badge" id="badgeBooks">0</span>
+        </button>
+    </div>
+
+    <!-- Requests List -->
+    <div class="requests-section">
+        <div class="section-header">
+            <h2><i class="fas fa-inbox"></i> Solicitudes Pendientes</h2>
+            <button class="btn-refresh" onclick="loadRequests()">
+                <i class="fas fa-sync-alt"></i> Actualizar
+            </button>
+        </div>
+
+        <div id="requestsList" class="requests-list">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<!-- Request Detail Modal -->
+<div class="modal" id="requestModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalTitle">Detalles de la Solicitud</h2>
+            <button class="close-modal" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="modal-body" id="modalBody">
+            <!-- Will be populated by JavaScript -->
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-approve" id="approveBtn">
+                <i class="fas fa-check"></i> Aprobar
+            </button>
+            <button class="btn-reject" id="rejectBtn">
+                <i class="fas fa-times"></i> Rechazar
+            </button>
+            <button class="btn-cancel" onclick="closeModal()">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal" id="confirmModal">
+    <div class="modal-content confirm-modal">
+        <div class="modal-header">
+            <h2 id="confirmTitle">Confirmar Acción</h2>
+        </div>
+
+        <div class="modal-body">
+            <p id="confirmMessage"></p>
+            <div class="form-group" id="reasonGroup" style="display:none;">
+                <label for="rejectionReason">Razón del rechazo (opcional):</label>
+                <textarea id="rejectionReason" rows="3"
+                    placeholder="Explica por qué se rechaza esta solicitud..."></textarea>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-confirm" id="confirmBtn">Confirmar</button>
+            <button class="btn-cancel" onclick="closeConfirmModal()">Cancelar</button>
+        </div>
+    </div>
+</div>

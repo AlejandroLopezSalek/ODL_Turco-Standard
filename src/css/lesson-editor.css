@@ -1,0 +1,717 @@
+﻿/* ========================================
+   LESSON EDITOR STYLES
+   Visual editor for creating beautiful lessons
+   ======================================== */
+
+.lesson-editor {
+    background: transparent;
+    /* Remove card bg */
+    border-radius: 0;
+    padding: 0;
+    /* Remove padding to match width of inputs */
+    margin-bottom: 20px;
+}
+
+.editor-toolbar {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Force single line globally */
+    gap: 15px;
+    overflow-x: auto;
+    /* Enable scroll globally */
+    -webkit-overflow-scrolling: touch;
+    /* scroll-snap-type removed to fix glitch */
+    scroll-snap-type: none;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+    /* Ensure no masks from carousel styles leak here */
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 5px;
+    padding-right: 15px;
+    border-right: 2px solid var(--border-color);
+    padding-right: 15px;
+    flex: 0 0 auto;
+    /* No shrink, auto width */
+    width: auto;
+    scroll-snap-align: start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    /* Prevent buttons wrapping */
+    align-items: center;
+}
+
+.toolbar-group:last-child {
+    border-right: none;
+}
+
+.toolbar-btn {
+    padding: 8px 12px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.toolbar-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.toolbar-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.toolbar-btn i {
+    font-size: 1rem;
+}
+
+/* Editor Content Area */
+.editor-content {
+    min-height: 400px;
+    padding: 20px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* Mobile: Larger Edit Box */
+@media (max-width: 768px) {
+    .editor-content {
+        min-height: 500px;
+        /* Larger on mobile as requested */
+    }
+}
+
+.editor-content:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Lesson Components */
+.lesson-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lesson-table th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.lesson-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.lesson-table tr:last-child td {
+    border-bottom: none;
+}
+
+.lesson-table tr:hover {
+    background: var(--bg-secondary);
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-left: 4px solid #667eea;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.highlight-box strong {
+    color: #667eea;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* Tip Box */
+.tip-box {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+    border-left: 4px solid #10b981;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    display: flex;
+    gap: column;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.tip-box::before {
+    content: "💡";
+    font-size: 1.5rem;
+}
+
+.tip-box strong {
+    color: #10b981;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Warning Box */
+.warning-box {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+    border-left: 4px solid #f59e0b;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.warning-box::before {
+    content: "⚠️ ";
+    font-size: 1.2rem;
+}
+
+.warning-box strong {
+    color: #f59e0b;
+}
+
+/* Example Box */
+.example-box {
+    background: var(--bg-secondary);
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border: 2px dashed var(--border-color);
+}
+
+.example-box strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.example-box code {
+    background: var(--bg-card);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #667eea;
+}
+
+/* Table Builder Modal */
+.table-builder-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-backdrop);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-builder-modal.active {
+    display: flex;
+}
+
+.table-builder-content {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    padding: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.table-builder-content h3 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.table-size-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.table-size-inputs input {
+    padding: 10px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+}
+
+.table-preview {
+    max-height: 300px;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.table-preview table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-preview th,
+.table-preview td {
+    padding: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.table-preview input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+}
+
+/* Preview Mode */
+.preview-mode {
+    padding: 30px;
+    background: var(--bg-primary);
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+}
+
+.preview-mode h1,
+.preview-mode h2,
+.preview-mode h3 {
+    color: var(--text-primary);
+    margin: 20px 0 10px 0;
+}
+
+.preview-mode p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.preview-mode ul,
+.preview-mode ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+/* Edit Button on Published Lessons */
+.lesson-edit-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    /* Highlight Box */
+    .highlight-box {
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        border-left: 4px solid #667eea;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+
+    .highlight-box strong {
+        color: #667eea;
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+
+    /* Tip Box */
+    .tip-box {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+        border-left: 4px solid #10b981;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+        display: flex;
+        gap: column;
+        gap: 8px;
+        flex-direction: column;
+    }
+
+    .tip-box::before {
+        content: "💡";
+        font-size: 1.5rem;
+    }
+
+    .tip-box strong {
+        color: #10b981;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Warning Box */
+    .warning-box {
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(217, 119, 6, 0.1) 100%);
+        border-left: 4px solid #f59e0b;
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+
+    .warning-box::before {
+        content: "⚠️ ";
+        font-size: 1.2rem;
+    }
+
+    .warning-box strong {
+        color: #f59e0b;
+    }
+
+    /* Example Box */
+    .example-box {
+        background: var(--bg-secondary);
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+        border: 2px dashed var(--border-color);
+    }
+
+    .example-box strong {
+        color: var(--text-primary);
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .example-box code {
+        background: var(--bg-card);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        color: #667eea;
+    }
+
+    /* Table Builder Modal */
+    .table-builder-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--modal-backdrop);
+        backdrop-filter: blur(8px);
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-builder-modal.active {
+        display: flex;
+    }
+
+    .table-builder-content {
+        background: var(--bg-primary);
+        border-radius: 20px;
+        max-width: 600px;
+        width: 90%;
+        padding: 30px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .table-builder-content h3 {
+        color: var(--text-primary);
+        margin-bottom: 20px;
+    }
+
+    .table-size-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .table-size-inputs input {
+        padding: 10px;
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--input-bg);
+        color: var(--text-primary);
+    }
+
+    .table-preview {
+        max-height: 300px;
+        overflow: auto;
+        margin-bottom: 20px;
+    }
+
+    .table-preview table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .table-preview th,
+    .table-preview td {
+        padding: 8px;
+        border: 1px solid var(--border-color);
+    }
+
+    .table-preview input {
+        width: 100%;
+        padding: 6px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background: var(--input-bg);
+        color: var(--text-primary);
+    }
+
+    /* Preview Mode */
+    .preview-mode {
+        padding: 30px;
+        background: var(--bg-primary);
+        border-radius: 15px;
+        border: 2px solid var(--border-color);
+    }
+
+    .preview-mode h1,
+    .preview-mode h2,
+    .preview-mode h3 {
+        color: var(--text-primary);
+        margin: 20px 0 10px 0;
+    }
+
+    .preview-mode p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+
+    .preview-mode ul,
+    .preview-mode ol {
+        margin-left: 20px;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+
+    /* Edit Button on Published Lessons */
+    .lesson-edit-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 8px 16px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+        .lesson-edit-btn {
+            position: relative !important;
+            top: auto !important;
+            right: auto !important;
+            margin-bottom: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .editor-carousel-container {
+            position: relative;
+            padding-bottom: 30px;
+            /* Space for indicators */
+        }
+
+        .editor-toolbar {
+            display: flex;
+            flex-wrap: nowrap !important;
+            /* Force nowrap */
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 20px;
+            /* More space for scrollbar/indicators */
+            /* scroll-snap-type removed */
+            gap: 15px;
+            scrollbar-width: none;
+            width: 100%;
+            /* Ensure full width */
+            justify-content: flex-start;
+            /* Alignment start */
+            mask-image: none !important;
+            -webkit-mask-image: none !important;
+        }
+
+        .editor-toolbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .toolbar-group {
+            border-right: 1px solid var(--border-color);
+            padding-right: 15px;
+            /* Increase spacing */
+            flex: 0 0 auto;
+            /* Allow group to take natural width */
+            width: auto;
+            /* Remove fixed 85% constraint */
+            /* scroll-snap-align removed */
+            justify-content: flex-start;
+            display: flex;
+            flex-wrap: nowrap;
+            /* Force buttons in one line */
+            align-items: center;
+        }
+
+        /* Indicators for editor */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+        }
+
+        .toolbar-group:last-child {
+            border-right: none;
+        }
+
+        .table-size-inputs {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Override for text overflow fix */
+    .editor-content {
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        resize: none !important;
+        /* Disable manual resize */
+        min-height: 500px !important;
+        /* Ensure visibility */
+        display: block !important;
+    }
+
+    /* Also disable resize for the short description */
+    textarea {
+        resize: none !important;
+    }
+
+}
+
+/* ========================================
+   DARK MODE OVERRIDES
+   ======================================== */
+html.dark-mode .editor-toolbar {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+html.dark-mode .toolbar-btn {
+    background: #0f172a;
+    border-color: #334155;
+    color: #cbd5e1;
+}
+
+html.dark-mode .toolbar-group {
+    border-right-color: #334155;
+}
+
+html.dark-mode .toolbar-btn:hover {
+    background: #334155;
+    color: white;
+    border-color: #667eea;
+}
+
+html.dark-mode .toolbar-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+html.dark-mode .editor-content {
+    background: #0f172a;
+    color: #f1f5f9;
+    border-color: #334155;
+}
+
+/* Ensure headings in editor are visible */
+html.dark-mode .editor-content h2,
+html.dark-mode .editor-content h3,
+html.dark-mode .editor-content strong {
+    color: #f1f5f9;
+}
+
+/* Fix table builder modal in dark mode */
+html.dark-mode .table-builder-content {
+    background: #1e293b;
+    color: #f1f5f9;
+}
+
+html.dark-mode .table-builder-content h3 {
+    color: #f1f5f9;
+}
+
+html.dark-mode .table-size-inputs label {
+    color: #cbd5e1;
+}
+
+html.dark-mode .table-size-inputs input,
+html.dark-mode .table-preview input {
+    background: #0f172a;
+    color: #f1f5f9;
+    border-color: #334155;
+}
+
+html.dark-mode .btn-cancel {
+    background: #334155;
+    color: #cbd5e1;
+}
+
+html.dark-mode .btn-cancel:hover {
+    background: #475569;
+    color: white;
+}

@@ -1,0 +1,1096 @@
+/* ========================================
+   UNIFIED DARK MODE SYSTEM
+   For all pages: index, Consejos, Gramatica, Niveles
+   ======================================== */
+
+/* ========================================
+   CSS VARIABLES - LIGHT MODE (DEFAULT)
+   ======================================== */
+:root {
+    /* Backgrounds */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-card: rgba(255, 255, 255, 0.95);
+    --bg-gradient-start: #667eea;
+    --bg-gradient-end: #764ba2;
+
+    /* Text Colors */
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #888888;
+    --text-white: #ffffff;
+
+    /* Borders */
+    --border-color: #e1e5e9;
+    --border-light: rgba(255, 255, 255, 0.2);
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+
+    /* Special Elements */
+    --backdrop-blur: rgba(255, 255, 255, 0.1);
+    --notice-bg: rgba(255, 193, 7, 0.9);
+    --notice-color: #856404;
+    --notice-border: #ffeb3b;
+    --modal-backdrop: rgba(0, 0, 0, 0.5);
+    --table-hover: #f5f5f5;
+    --input-bg: #ffffff;
+
+    /* Accent Colors */
+    --accent-blue: #4A90E2;
+    --accent-blue-hover: #357ABD;
+    --accent-green: #4CAF50;
+    --accent-orange: #ff9800;
+    --accent-red: #ef4444;
+
+    /* Status Colors */
+    --success-bg: #d4edda;
+    --success-color: #155724;
+    --warning-bg: #fff3cd;
+    --warning-color: #856404;
+    --unlearned-bg: #fff3cd;
+    --unlearned-color: #856404;
+    --all-learned-bg: #d4edda;
+    --all-learned-color: #155724;
+
+    /* Special Boxes */
+    --example-bg: #f8f9fa;
+    --tip-bg: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    --tip-border: #ffeb3b;
+    --learned-bg: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+    --learned-border: #4CAF50;
+    --learned-deck-bg: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+}
+
+/* ========================================
+   CSS VARIABLES - DARK MODE
+   ======================================== */
+html.dark-mode {
+    /* Backgrounds - Dark Blue Palette */
+    --bg-primary: #0f172a;
+    /* Slate 900 */
+    --bg-secondary: #1e293b;
+    /* Slate 800 */
+    --bg-card: #1e293b;
+    /* Slate 800 */
+    --bg-gradient-start: #0f172a;
+    --bg-gradient-end: #312e81;
+    /* Indigo 900 */
+
+    /* Text */
+    --text-primary: #f1f5f9;
+    /* Slate 100 */
+    --text-secondary: #94a3b8;
+    /* Slate 400 */
+    --text-muted: #64748b;
+    /* Slate 500 */
+    --text-white: #ffffff;
+
+    /* Borders */
+    --border-color: #334155;
+    /* Slate 700 */
+    --border-light: rgba(255, 255, 255, 0.1);
+
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+    --shadow-strong: rgba(0, 0, 0, 0.7);
+
+    /* Backdrop */
+    --backdrop-blur: rgba(15, 23, 42, 0.85);
+
+    /* Accent Colors */
+    --accent-blue: #818cf8;
+    /* Indigo 400 */
+    --accent-blue-hover: #6366f1;
+    /* Indigo 500 */
+    --accent-green: #34d399;
+    /* Emerald 400 */
+    --accent-orange: #fbbf24;
+    /* Amber 400 */
+    --accent-red: #f87171;
+    /* Red 400 */
+
+    /* Notices & Status */
+    --notice-bg: rgba(56, 189, 248, 0.15);
+    --notice-color: #38bdf8;
+    --notice-border: #0ea5e9;
+
+    --modal-backdrop: rgba(15, 23, 42, 0.9);
+    --table-hover: #334155;
+    --input-bg: #0f172a;
+
+    --success-bg: rgba(52, 211, 153, 0.15);
+    --success-color: #34d399;
+
+    --warning-bg: rgba(251, 191, 36, 0.15);
+    --warning-color: #fbbf24;
+}
+
+/* ========================================
+   GLOBAL STYLES - ALL PAGES
+   ======================================== */
+
+/* Body */
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+
+
+/* Container */
+.container {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+
+}
+
+html.dark-mode .container {
+    background: #1e293b;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+    border: 1px solid #334155;
+}
+
+/* ========================================
+   HEADER - ALL PAGES
+   ======================================== */
+.header {
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #4c1d95 100%);
+    color: #f1f5f9;
+}
+
+.main-title,
+.level-title,
+.page-title {
+    color: var(--text-white);
+    text-shadow: 0 2px 4px var(--shadow);
+}
+
+html.dark-mode .main-title,
+html.dark-mode .level-title,
+html.dark-mode .page-title {
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    color: #f1f5f9;
+}
+
+.level-description,
+.page-subtitle,
+.quote-translation {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+html.dark-mode .level-description,
+html.dark-mode .page-subtitle,
+html.dark-mode .quote-translation {
+    color: #cbd5e1;
+}
+
+/* ========================================
+   NAVIGATION - TABS
+   ======================================== */
+.tabs {
+    gap: 10px;
+}
+
+.tab {
+    background: var(--backdrop-blur);
+    color: var(--text-white);
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.tab.active {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+html.dark-mode .tab {
+    background: var(--backdrop-blur);
+    border-color: var(--border-light);
+}
+
+html.dark-mode .tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+html.dark-mode .tab.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   CARDS - ALL TYPES
+   ======================================== */
+
+/* Level Cards (Index Page) */
+.level-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.level-card:hover {
+    box-shadow: 0 12px 40px var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+.level-card.special {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, var(--bg-card) 100%);
+    border-color: var(--accent-blue);
+}
+
+html.dark-mode .level-card {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .level-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: #64748b;
+}
+
+html.dark-mode .level-card.special {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, rgba(55, 48, 163, 0.4) 100%);
+    border: 2px solid #818cf8;
+}
+
+.level-header h3 {
+    color: var(--text-primary);
+}
+
+html.dark-mode .level-header h3 {
+    color: #f1f5f9;
+}
+
+/* Grammar Cards (Gramatica Page) */
+.grammar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.grammar-card:hover {
+    box-shadow: 0 8px 25px var(--shadow-hover);
+    transform: translateY(-3px);
+}
+
+html.dark-mode .grammar-card {
+    background: #334155;
+    border-color: #475569;
+}
+
+html.dark-mode .grammar-card:hover {
+    border-color: #818cf8;
+    box-shadow: 0 20px 50px rgba(129, 140, 248, 0.2);
+}
+
+.card-header h3,
+.card-description {
+    color: var(--text-primary);
+}
+
+html.dark-mode .card-header h3 {
+    color: #f1f5f9;
+}
+
+html.dark-mode .card-description {
+    color: #94a3b8;
+}
+
+/* Action Cards */
+.action-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--shadow-hover);
+}
+
+html.dark-mode .action-card {
+    background: #2d2d2d;
+    border-color: #404040;
+}
+
+html.dark-mode .action-card:hover {
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.action-content h3 {
+    color: var(--text-primary);
+}
+
+.action-content p {
+    color: var(--text-secondary);
+}
+
+html.dark-mode .action-content h3 {
+    color: white;
+}
+
+html.dark-mode .action-content p {
+    color: #ccc;
+}
+
+/* ========================================
+   SCHEDULE SECTION (CONSEJOS PAGE)
+   ======================================== */
+.time-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .time-block {
+    background: #334155;
+    border-color: #475569;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .time-block:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border-color: #64748b;
+}
+
+.time-period {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+html.dark-mode .time-period {
+    background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    color: #14375c;
+}
+
+.activity-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    background: var(--bg-secondary);
+}
+
+html.dark-mode .activity-item {
+    background: transparent;
+}
+
+html.dark-mode .activity-item:hover {
+    background: #475569;
+}
+
+.activity-content h4 {
+    color: var(--text-primary);
+}
+
+.activity-content p {
+    color: var(--text-secondary);
+}
+
+html.dark-mode .activity-content h4 {
+    color: #f1f5f9;
+}
+
+html.dark-mode .activity-content p {
+    color: #94a3b8;
+}
+
+/* YouTube Channels Section */
+.channel-category {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .channel-category {
+    background: #334155;
+    border-color: #475569;
+}
+
+html.dark-mode .channel-category:hover {
+    border-color: #ef4444;
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+}
+
+.category-title {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+html.dark-mode .category-title {
+    color: #f1f5f9;
+    border-bottom-color: #64748b;
+}
+
+.channel-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+html.dark-mode .channel-item {
+    background: #475569;
+    border-color: #64748b;
+    color: #f1f5f9;
+}
+
+html.dark-mode .channel-item:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-hover) 100%);
+    color: var(--text-white);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--accent-blue-hover) 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--border-color);
+}
+
+html.dark-mode .btn-secondary {
+    background: #404040;
+    color: white;
+    border-color: #555;
+}
+
+html.dark-mode .btn-secondary:hover {
+    background: #555;
+}
+
+.btn-outline {
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background: var(--accent-blue);
+    color: var(--text-white);
+}
+
+html.dark-mode .btn-outline {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+html.dark-mode .btn-outline:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.back-btn,
+.volver-btn {
+    background: var(--backdrop-blur);
+    border: 1px solid var(--border-light);
+    color: var(--text-white);
+}
+
+.back-btn:hover,
+.volver-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+html.dark-mode .volver-btn {
+    background-color: var(--accent-blue);
+    color: var(--text-white);
+}
+
+html.dark-mode .volver-btn:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+/* ========================================
+   FORMS AND INPUTS
+   ======================================== */
+.form-section {
+    background: var(--bg-secondary);
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.setting-select {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.setting-select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+html.dark-mode .setting-select {
+    background: #2d2d2d;
+    color: white;
+    border-color: #404040;
+}
+
+/* ========================================
+   MODALS
+   ======================================== */
+.modal {
+    background: var(--modal-backdrop);
+    backdrop-filter: blur(8px);
+}
+
+html.dark-mode .modal {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .modal-content {
+    background: #334155;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+html.dark-mode .modal-header {
+    border-bottom-color: #475569;
+}
+
+.modal-header h3 {
+    color: var(--text-white);
+}
+
+.modal-body h4,
+.modal-body h5 {
+    color: var(--text-primary);
+}
+
+.modal-body p,
+.modal-body li {
+    color: var(--text-secondary);
+}
+
+html.dark-mode .modal-body h4 {
+    color: #818cf8;
+}
+
+html.dark-mode .modal-body p,
+html.dark-mode .modal-body li {
+    color: #94a3b8;
+}
+
+.close-modal,
+.close-btn {
+    color: var(--text-white);
+}
+
+.close-modal:hover,
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+html.dark-mode .close-btn:hover {
+    background: #475569;
+    color: #f1f5f9;
+}
+
+/* ========================================
+   SETTINGS PANEL
+   ======================================== */
+html.dark-mode .settings-panel {
+    background: #2d2d2d;
+    color: white;
+}
+
+
+
+html.dark-mode .settings-header {
+    border-bottom-color: #404040;
+}
+
+
+
+html.dark-mode .settings-header h2 {
+    color: white;
+}
+
+
+
+html.dark-mode .setting-item {
+    background: #2d2d2d;
+    border-color: #404040;
+}
+
+
+html.dark-mode .setting-content h3 {
+    color: white;
+}
+
+html.dark-mode .setting-content p {
+    color: #ccc;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+.comparison-table tr:hover {
+    background-color: var(--table-hover);
+}
+
+.comparison-table th,
+.comparison-table td {
+    border-bottom: 1px solid var(--border-color);
+}
+
+html.dark-mode .comparison-table th {
+    background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+}
+
+/* ========================================
+   SPECIAL BOXES
+   ======================================== */
+.example-box {
+    background: var(--example-bg);
+    border-left: 4px solid var(--accent-blue);
+    transition: all 0.3s ease;
+}
+
+.tip-box {
+    background: var(--tip-bg);
+    border: 1px solid var(--tip-border);
+    transition: all 0.3s ease;
+}
+
+.notice {
+    background: var(--notice-bg);
+    color: var(--notice-color);
+    border: 1px solid var(--notice-border);
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   CONTENT SECTIONS
+   ======================================== */
+.content,
+.level-content {
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .content,
+html.dark-mode .level-content {
+    background: #1e293b;
+}
+
+.section-title {
+    color: var(--text-primary);
+    border-bottom: 3px solid var(--border-color);
+}
+
+html.dark-mode .section-title {
+    color: #f1f5f9;
+    border-bottom-color: #475569;
+}
+
+.section-title i {
+    color: var(--accent-blue);
+}
+
+html.dark-mode .section-title i {
+    color: #818cf8;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .footer {
+    background: var(--bg-secondary);
+    border-top-color: var(--border-color);
+}
+
+.footer-content,
+.made-with {
+    color: var(--text-secondary);
+}
+
+html.dark-mode .footer-content,
+html.dark-mode .made-with {
+    color: #cccccc;
+}
+
+.heart-icon {
+    color: var(--accent-red);
+}
+
+html.dark-mode .heart-icon {
+    color: #f87171;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+html.dark-mode::-webkit-scrollbar {
+    width: 8px;
+}
+
+html.dark-mode::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+html.dark-mode::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+html.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* ========================================
+   TRANSITIONS
+   ======================================== */
+* {
+    transition: background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+html.dark-mode .btn:focus,
+html.dark-mode .tab:focus,
+html.dark-mode input:focus,
+html.dark-mode textarea:focus,
+html.dark-mode select:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    outline: none;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    html.dark-mode {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-content {
+        margin: 10px;
+        max-height: 95vh;
+    }
+
+    .settings-panel {
+        width: 95%;
+        max-height: 90vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+
+/* ======================================== DASHBOARD & CONSEJOS DARK MODE ======================================== */
+
+/* Dashboard Dark Mode - General Sections */
+html.dark-mode .mission-section,
+html.dark-mode .feature-card,
+html.dark-mode .developer-card,
+html.dark-mode .roadmap-section,
+html.dark-mode .support-project-section,
+html.dark-mode .credits-section,
+html.dark-mode .tech-item,
+html.dark-mode .contact-btn {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border-color: rgba(71, 85, 105, 0.5) !important;
+    color: #f1f5f9 !important;
+}
+
+/* Dashboard - Collaboration Section Dark Mode */
+html.dark-mode .collaboration-section {
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%) !important;
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .collaboration-section h2 {
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .collab-content p {
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .collab-content i {
+    color: #818cf8 !important;
+}
+
+/* Dashboard - Roadmap Section Dark Mode */
+html.dark-mode .roadmap-section {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%) !important;
+}
+
+html.dark-mode .roadmap-timeline::before {
+    background: linear-gradient(180deg, #818cf8 0%, #a78bfa 100%) !important;
+}
+
+html.dark-mode .timeline-content h4 {
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .timeline-content p {
+    color: #94a3b8 !important;
+}
+
+/* Dashboard - Support Project Section Dark Mode */
+html.dark-mode .support-project-section {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(51, 65, 85, 0.95) 100%) !important;
+}
+
+html.dark-mode .support-text {
+    color: #cbd5e1 !important;
+}
+
+/* Dashboard - Donation Card Dark Mode */
+html.dark-mode .donation-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 27, 75, 0.95) 100%) !important;
+    border: 1px solid rgba(129, 140, 248, 0.3) !important;
+}
+
+html.dark-mode .donation-icon {
+    color: #818cf8 !important;
+}
+
+html.dark-mode .donation-info h3 {
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .donation-benefits li {
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .donation-benefits i {
+    color: #a78bfa !important;
+}
+
+/* Dashboard - Donate Button Dark Mode */
+html.dark-mode .donate-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4) !important;
+}
+
+html.dark-mode .donate-btn:hover {
+    box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6) !important;
+}
+
+/* Dashboard - Support Thanks Dark Mode */
+html.dark-mode .support-thanks {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+    color: #cbd5e1 !important;
+}
+
+/* Dashboard - Contact Button Dark Mode */
+html.dark-mode .contact-btn {
+    background: transparent !important;
+    border-color: #818cf8 !important;
+    color: #818cf8 !important;
+}
+
+html.dark-mode .contact-btn:hover {
+    background: #818cf8 !important;
+    color: #0f172a !important;
+}
+
+/* Dashboard - Hero Section Dark Mode */
+html.dark-mode .hero-dashboard {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(51, 65, 85, 0.5) 100%) !important;
+}
+
+html.dark-mode .hero-dashboard h2 {
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .hero-subtitle {
+    color: #94a3b8 !important;
+}
+
+/* Dashboard - Dev Stats Dark Mode */
+html.dark-mode .dev-stats .stat {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .dev-stats .stat i {
+    color: #818cf8 !important;
+}
+
+/* Dashboard - Text Colors Dark Mode */
+html.dark-mode .mission-section h2,
+html.dark-mode .features-dashboard h2,
+html.dark-mode .developer-section h2,
+html.dark-mode .roadmap-section h2,
+html.dark-mode .support-project-section h2,
+html.dark-mode .tech-stack-section h2,
+html.dark-mode .contact-section h2,
+html.dark-mode .credits-section h2 {
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .mission-text,
+html.dark-mode .feature-card p,
+html.dark-mode .dev-bio,
+html.dark-mode .credits-section p,
+html.dark-mode .contact-section p {
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .feature-card h3,
+html.dark-mode .dev-info h3,
+html.dark-mode .credits-list li {
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .feature-card i,
+html.dark-mode .dev-avatar i,
+html.dark-mode .tech-item i,
+html.dark-mode .hero-icon {
+    color: #818cf8 !important;
+}
+
+html.dark-mode .dev-title {
+    color: #a78bfa !important;
+}
+
+html.dark-mode .tech-item span {
+    color: #cbd5e1 !important;
+}
+
+/* Consejos Dark Mode */
+html.dark-mode .time-block,
+html.dark-mode .channel-category {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border-color: rgba(71, 85, 105, 0.5) !important;
+}
+
+html.dark-mode .time-period {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .activity-item {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(51, 65, 85, 0.5) 100%) !important;
+}
+
+html.dark-mode .activity-item:hover {
+    background: linear-gradient(135deg, rgba(51, 65, 85, 0.9) 0%, rgba(71, 85, 105, 0.9) 100%) !important;
+}
+
+/* ========================================
+   SEARCH BAR & CONTRIBUTION DARK MODE
+   ======================================== */
+
+/* Search Bar Panel */
+html.dark-mode .topics-panel {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border-color: rgba(71, 85, 105, 0.5) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark-mode .panel-header {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%) !important;
+}
+
+html.dark-mode .panel-content {
+    background: rgba(30, 41, 59, 0.95) !important;
+}
+
+html.dark-mode .search-box input {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border-color: rgba(71, 85, 105, 0.5) !important;
+    color: #f1f5f9 !important;
+}
+
+html.dark-mode .search-box input::placeholder {
+    color: #94a3b8 !important;
+}
+
+html.dark-mode .search-box i {
+    color: #94a3b8 !important;
+}
+
+/* Contribution Section */
+html.dark-mode .level-actions {
+    background: rgba(30, 41, 59, 0.95) !important;
+    border-color: rgba(71, 85, 105, 0.5) !important;
+}
+
+html.dark-mode .level-actions h3 {
+    color: #f1f5f9 !important;
+}

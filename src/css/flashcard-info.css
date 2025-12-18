@@ -1,0 +1,279 @@
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 50px;
+}
+
+.hero-icon {
+    font-size: 5rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Download Section */
+.download-section {
+    text-align: center;
+    background: white;
+    padding: 50px 30px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.download-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.download-desc {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    background: #10b981;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.download-btn i {
+    font-size: 2.5rem;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.small-text {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.large-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.coming-soon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+    background: #6b7280;
+    color: white;
+    border-radius: 12px;
+    opacity: 0.6;
+}
+
+.coming-soon i {
+    font-size: 2.5rem;
+}
+
+/* QR Section */
+.qr-section {
+    margin-top: 30px;
+}
+
+.qr-code {
+    display: inline-block;
+}
+
+.qr-placeholder {
+    width: 200px;
+    height: 200px;
+    background: #f3f4f6;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px dashed #d1d5db;
+}
+
+.qr-placeholder i {
+    font-size: 3rem;
+    color: #9ca3af;
+}
+
+.qr-placeholder p {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* Screenshots */
+.screenshots-section {
+    margin-bottom: 50px;
+}
+
+.screenshots-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.screenshot-placeholder {
+    aspect-ratio: 9/19;
+    background: #f3f4f6;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    border: 3px solid #e5e7eb;
+}
+
+.screenshot-placeholder i {
+    font-size: 3rem;
+    color: #9ca3af;
+}
+
+.screenshot-placeholder p {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Requirements & FAQ */
+.requirements-section,
+.faq-section,
+.support-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.requirements-section h2,
+.faq-section h2,
+.support-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.requirement-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.requirement-item i {
+    font-size: 2rem;
+    color: #667eea;
+}
+
+.requirement-item h4 {
+    font-size: 1rem;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.requirement-item p {
+    font-size: 0.9rem;
+}

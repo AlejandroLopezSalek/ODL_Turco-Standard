@@ -1,0 +1,697 @@
+/* ========================================
+    Community Lessons
+   ======================================== */
+
+.status-published {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-item strong {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.detail-item span {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.lesson-delete-btn {
+    background: var(--bg-secondary);
+    /* or white/transparent depending on preference, user asked for purple though */
+    background: #667eea;
+    /* Classic purple */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    /* Remove absolute positioning */
+    position: static;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+}
+
+.lesson-delete-btn:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-view-lesson {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-view-lesson:hover {
+    background: var(--border-color);
+}
+
+.lesson-edit-btn {
+    background: transparent;
+    color: #64748b;
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.lesson-edit-btn:hover {
+    background: #f1f5f9;
+    color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+
+/* ========================================
+   BOOKS SECTION STYLES - AGREGAR AL FINAL DE contribute.css
+   ======================================== */
+
+.books-section {
+    margin: 40px 0 60px 0;
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+}
+
+.section-title i {
+    color: #667eea;
+    font-size: 2rem;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.book-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+    border-color: #667eea;
+}
+
+.book-card-content {
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.book-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.book-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.book-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+}
+
+.book-meta {
+    display: flex;
+    gap: 25px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+.book-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.book-meta i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.book-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 2px solid var(--border-color);
+}
+
+.book-btn {
+    padding: 18px 25px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+}
+
+.btn-view {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-view:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-download {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-left: 1px solid var(--border-color);
+}
+
+.btn-download:hover {
+    background: #f1f5f9;
+    color: #667eea;
+}
+
+.btn-view i,
+.btn-download i {
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .book-card-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .book-icon {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+    }
+
+    .book-icon i {
+        font-size: 2rem;
+    }
+
+    .book-meta {
+        justify-content: center;
+    }
+
+    .book-actions {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+}
+
+.section-title i {
+    color: #667eea;
+    font-size: 2rem;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.book-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.25);
+    border-color: #667eea;
+}
+
+.book-card-content {
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.book-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.book-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin: 0 0 12px 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.book-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+}
+
+.book-meta {
+    display: flex;
+    gap: 25px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+.book-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.book-meta i {
+    color: #667eea;
+    font-size: 1rem;
+}
+
+.book-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 2px solid var(--border-color);
+}
+
+.book-btn {
+    padding: 18px 25px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+}
+
+.btn-view {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-view:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
+    box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-download {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-left: 1px solid var(--border-color);
+}
+
+.btn-download:hover {
+    background: #f1f5f9;
+    color: #667eea;
+}
+
+.btn-view i,
+.btn-download i {
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .book-card-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .book-icon {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+    }
+
+    .book-icon i {
+        font-size: 2rem;
+    }
+
+    .book-meta {
+        justify-content: center;
+    }
+
+    .book-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-view {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-download {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .book-title {
+        font-size: 1.15rem;
+    }
+
+    .book-description {
+        font-size: 0.95rem;
+    }
+
+    .book-btn {
+        padding: 16px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   COMMUNITY CONTROLS (Search & Filter)
+   ======================================== */
+
+.community-controls {
+    margin-bottom: 40px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.search-container i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 10px 5px 25px 5px;
+    /* Top, Right, Bottom (for shadow), Left */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.filter-tabs::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.filter-tab {
+    padding: 15px 30px;
+    border: 2px solid var(--border-color);
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    flex: 0 0 auto;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    scroll-snap-align: center;
+}
+
+.filter-tab:hover {
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.15);
+}
+
+.filter-tab.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   CONTRIBUTION CTA & DARK MODE FIXES
+   ======================================== */
+.contribution-cta {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.contribution-cta h3 {
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+html.dark-mode .contribution-cta {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+html.dark-mode .contribution-cta h3 {
+    color: var(--text-primary);
+}
+
+/* Dark Mode Overrides for Community Page */
+html.dark-mode .community-controls {
+    background: var(--bg-card);
+    border-color: var(--border-color);
+}
+
+html.dark-mode .filter-tab {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+html.dark-mode .filter-tab:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+html.dark-mode .filter-tab.active {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-hover) 100%);
+    color: white;
+    border-color: transparent;
+}
+
+html.dark-mode .search-container input {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+html.dark-mode .search-container input:focus {
+    border-color: var(--accent-blue);
+}
+
+/* HIGH PRIORITY MOBILE FIX for Edit Button */
+@media (max-width: 768px) {
+    button.lesson-edit-btn {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        margin-bottom: 15px !important;
+        z-index: 100 !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 10px !important;
+    }
+}

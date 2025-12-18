@@ -1,0 +1,50 @@
+/* Streak Display */
+.streak-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.streak-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    animation: streakPulse 2s infinite;
+}
+
+.streak-display i {
+    font-size: 1.5rem;
+    animation: fireFlicker 1s infinite;
+}
+
+#streakCount {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.streak-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.streak-message {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@keyframes streakPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fireFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}

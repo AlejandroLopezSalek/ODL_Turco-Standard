@@ -1,0 +1,114 @@
+﻿---
+layout: base.njk
+styles:
+- index.css
+- mobile-visual-fixes.css
+- critical-fixes.css
+- smooth-scroll-fixes.css
+scripts:
+- index.js
+- carousel-universal.js
+---
+
+<div class="levels-carousel-container">
+    <div class="levels-grid">
+        <div class="level-card">
+            <div class="level-header">
+                <h3>Nivel A1</h3>
+                <p class="level-subtitle">Principiante</p>
+            </div>
+            <div class="level-actions">
+                <a href="/NivelA1/" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Acceder al Nivel
+                </a>
+            </div>
+        </div>
+
+        <div class="level-card">
+            <div class="level-header">
+                <h3>Nivel A2</h3>
+                <p class="level-subtitle">Elemental</p>
+            </div>
+            <div class="level-actions">
+                <a href="/NivelA2/" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Acceder al Nivel
+                </a>
+            </div>
+        </div>
+
+        <div class="level-card">
+            <div class="level-header">
+                <h3>Nivel B1</h3>
+                <p class="level-subtitle">Intermedio</p>
+            </div>
+            <div class="level-actions">
+                <a href="/NivelB1/" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Acceder al Nivel
+                </a>
+            </div>
+        </div>
+
+        <div class="level-card">
+            <div class="level-header">
+                <h3>Nivel B2</h3>
+                <p class="level-subtitle">Intermedio Alto</p>
+            </div>
+            <div class="level-actions">
+                <a href="/NivelB2/" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Acceder al Nivel
+                </a>
+            </div>
+        </div>
+
+        <div class="level-card">
+            <div class="level-header">
+                <h3>Nivel C1</h3>
+                <p class="level-subtitle">Avanzado</p>
+            </div>
+            <div class="level-actions">
+                <a href="/NivelC1/" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Acceder al Nivel
+                </a>
+            </div>
+        </div>
+
+        <div class="level-card special" onclick="window.location.href='/Community-Lessons/'" style="cursor: pointer;">
+            <div class="level-header">
+                <h3><i class="fas fa-users"></i> Lecciones de la Comunidad</h3>
+                <p class="level-subtitle">Explora y aprende con lecciones creadas por otros estudiantes</p>
+            </div>
+        </div>
+
+
+
+        <div class="carousel-indicators">
+            <button class="carousel-indicator active" data-index="0" aria-label="Ir a Nivel A1"></button>
+            <button class="carousel-indicator" data-index="1" aria-label="Ir a Nivel A2"></button>
+            <button class="carousel-indicator" data-index="2" aria-label="Ir a Nivel B1"></button>
+            <button class="carousel-indicator" data-index="3" aria-label="Ir a Nivel B2"></button>
+            <button class="carousel-indicator" data-index="4" aria-label="Ir a Nivel C1"></button>
+            <button class="carousel-indicator" data-index="5" aria-label="Ir a Comunidad"></button>
+        </div>
+    </div>
+
+
+
+
+    <div class="info-banner">
+        <div class="banner-content">
+            <i class="fas fa-info-circle"></i>
+            <div class="banner-text">
+                <h3>¿Quieres saber más sobre TurkAmerica?</h3>
+                <p>Conoce el proyecto, roadmap y cómo puedes apoyar el desarrollo</p>
+            </div>
+            <a href="/Dashboard/" class="btn btn-outline">
+                <i class="fas fa-compass"></i>
+                Ver Dashboard
+            </a>
+        </div>
+    </div>

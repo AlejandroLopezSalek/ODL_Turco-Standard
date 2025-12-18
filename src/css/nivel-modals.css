@@ -1,0 +1,484 @@
+/* ========================================
+   TOPICS PANEL STYLES
+   ======================================== */
+
+.topics-panel {
+    background: white;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* === PANEL HEADER === */
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.panel-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.panel-header i {
+    font-size: 1.2rem;
+}
+
+.panel-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.panel-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.topics-panel.collapsed .panel-toggle i {
+    transform: rotate(-90deg);
+}
+
+/* === PANEL CONTENT === */
+.panel-content {
+    max-height: 600px;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 20px;
+}
+
+.topics-panel.collapsed .panel-content {
+    max-height: 0;
+    padding: 0 !important;
+}
+
+/* === SEARCH BOX === */
+.search-box {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 12px 10px 38px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+}
+
+/* === TOPICS LIST === */
+.topics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.topics-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.topics-list::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+.topics-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+/* === TOPIC ITEMS === */
+.topic-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: #f8fafc;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.topic-item:hover {
+    background: #e0e7ff;
+    transform: translateX(5px);
+}
+
+.topic-item i {
+    color: #667eea;
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.topic-item span {
+    color: #1e293b;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.topic-item.hidden {
+    display: none;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .panel-header {
+        padding: 12px 15px;
+    }
+
+    .panel-header h3 {
+        font-size: 1rem;
+    }
+
+    .panel-content {
+        padding: 15px;
+        max-height: 400px;
+    }
+
+    .topics-list {
+        max-height: 300px;
+    }
+
+    .topic-item {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .search-box input {
+        font-size: 0.85rem;
+        padding: 8px 10px 8px 35px;
+    }
+}
+
+@media (max-width: 374px) {
+    .panel-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .topic-item {
+        padding: 9px 10px;
+    }
+
+    .topic-item span {
+        font-size: 0.85rem;
+    }
+}
+
+/* ========================================
+   MODAL FIXES PARA NIVELES A1-C1
+   Responsive y legible en móvil
+   ======================================== */
+
+/* === MODAL GENERAL === */
+.modal {
+    z-index: 9999 !important;
+}
+
+.modal-content {
+    max-width: 95vw !important;
+    max-height: 90vh !important;
+}
+
+.modal-body {
+    overflow-y: auto !important;
+    max-height: calc(90vh - 120px) !important;
+}
+
+/* === RESPONSIVE PARA MÓVIL === */
+@media (max-width: 768px) {
+
+    /* Modal adaptado a móvil */
+    .modal-content {
+        width: calc(100vw - 20px) !important;
+        max-width: 100% !important;
+        margin: 10px !important;
+        max-height: 92vh !important;
+        border-radius: 12px !important;
+    }
+
+    /* Header del modal */
+    .modal-header {
+        padding: 15px !important;
+        border-radius: 12px 12px 0 0 !important;
+        flex-wrap: wrap !important;
+    }
+
+    .modal-header h2,
+    #modalTitle {
+        font-size: 1.2rem !important;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+        flex: 1 1 calc(100% - 50px) !important;
+        word-wrap: break-word !important;
+        text-align: center !important;
+    }
+
+    .close-modal,
+    #closeModalBtn {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1.2rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Body del modal */
+    .modal-body,
+    #modalContent {
+        padding: 15px !important;
+        max-height: calc(92vh - 100px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* === CONTENIDO DEL MODAL === */
+
+    /* Títulos dentro del modal */
+    .modal-body h4,
+    #modalContent h4 {
+        font-size: 1.1rem !important;
+        margin: 15px 0 10px 0 !important;
+        line-height: 1.3 !important;
+        color: #1e293b !important;
+    }
+
+    .modal-body h5,
+    #modalContent h5 {
+        font-size: 1rem !important;
+        margin: 12px 0 8px 0 !important;
+        line-height: 1.3 !important;
+        color: #334155 !important;
+    }
+
+    /* Párrafos */
+    .modal-body p,
+    #modalContent p {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        margin: 8px 0 !important;
+    }
+
+    /* Listas */
+    .modal-body ul,
+    .modal-body ol,
+    #modalContent ul,
+    #modalContent ol {
+        padding-left: 20px !important;
+        margin: 10px 0 !important;
+    }
+
+    .modal-body li,
+    #modalContent li {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        margin: 6px 0 !important;
+    }
+
+    /* === TABLAS RESPONSIVE === */
+    .comparison-table {
+        width: 100% !important;
+        font-size: 0.75rem !important;
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        margin: 15px 0 !important;
+        border-radius: 8px !important;
+    }
+
+    .comparison-table table {
+        min-width: 100% !important;
+        border-collapse: collapse !important;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 8px 6px !important;
+        font-size: 0.75rem !important;
+        border: 1px solid #e5e7eb !important;
+        word-wrap: break-word !important;
+        vertical-align: top !important;
+    }
+
+    .comparison-table th {
+        background: #f1f5f9 !important;
+        font-weight: 600 !important;
+        color: #1e293b !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10 !important;
+    }
+
+    .comparison-table td {
+        background: white !important;
+    }
+
+    /* Hacer primera columna sticky en tablas grandes */
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        position: sticky !important;
+        left: 0 !important;
+        z-index: 5 !important;
+        background: #f8fafc !important;
+    }
+
+    /* === TIP BOX Y EXAMPLE BOX === */
+    .tip-box,
+    .example-box {
+        padding: 12px !important;
+        margin: 15px 0 !important;
+        border-radius: 10px !important;
+        font-size: 0.85rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .tip-box {
+        background: #dbeafe !important;
+        border-left: 4px solid #3b82f6 !important;
+    }
+
+    .example-box {
+        background: #f0fdf4 !important;
+        border-left: 4px solid #10b981 !important;
+    }
+
+    .tip-box strong,
+    .example-box strong {
+        display: block !important;
+        margin-bottom: 6px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .tip-box i,
+    .example-box i {
+        margin-right: 6px !important;
+        font-size: 1rem !important;
+    }
+
+    .tip-box ul,
+    .example-box ul {
+        margin-top: 8px !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* === ÉNFASIS EN TEXTO === */
+    .modal-body strong,
+    .modal-body em,
+    #modalContent strong,
+    #modalContent em {
+        color: #667eea !important;
+    }
+
+    /* === SCROLL SUAVE === */
+    .modal-body,
+    #modalContent {
+        scroll-behavior: smooth !important;
+    }
+
+    /* === FIX PARA TABLAS MUY ANCHAS === */
+    .comparison-table::-webkit-scrollbar {
+        height: 6px !important;
+    }
+
+    .comparison-table::-webkit-scrollbar-track {
+        background: #f1f5f9 !important;
+        border-radius: 3px !important;
+    }
+
+    .comparison-table::-webkit-scrollbar-thumb {
+        background: #cbd5e1 !important;
+        border-radius: 3px !important;
+    }
+
+    /* === SPACING INTERNO === */
+    .modal-body>*:first-child,
+    #modalContent>*:first-child {
+        margin-top: 0 !important;
+    }
+
+    .modal-body>*:last-child,
+    #modalContent>*:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* === PANTALLAS MUY PEQUEÑAS === */
+@media (max-width: 374px) {
+
+    .modal-header h2,
+    #modalTitle {
+        font-size: 1.1rem !important;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 6px 4px !important;
+        font-size: 0.7rem !important;
+    }
+
+    .modal-body p,
+    .modal-body li,
+    #modalContent p,
+    #modalContent li {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* === LANDSCAPE MODE === */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-content {
+        max-height: 95vh !important;
+    }
+
+    .modal-body,
+    #modalContent {
+        max-height: calc(95vh - 90px) !important;
+    }
+}

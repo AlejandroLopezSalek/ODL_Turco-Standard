@@ -1,0 +1,149 @@
+---
+layout: base.njk
+---
+
+
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Aprendizaje de Turco - TurkAmerica</title>
+   <link rel="icon" type="image/x-icon" href="/assets/TurkAmerica.ico">
+    
+    <link rel="stylesheet" href="/css/styles.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/darkmode.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/smooth-scroll-fixes.css">
+    
+    <link rel="stylesheet" href="/css/fix.css?v={{ timestamp }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<link rel="stylesheet" href="/css/gramatica.css">
+
+<link rel="stylesheet" href="/css/contribute.css?v={{ timestamp }}">
+<link rel="stylesheet" href="/css/nivel-modals.css?v={{ timestamp }}">
+<link rel="stylesheet" href="/css/inline-editor-mobile-fixes.css?v={{ timestamp }}">
+<link rel="stylesheet" href="/css/tip-box-fix.css?v={{ timestamp }}">
+
+<div class="container">
+    <div class="topics-panel" id="topicsPanel" style="margin-bottom: 30px; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0;">
+        <div class="panel-header" style="background: #6366f1; padding: 15px 20px; color: white; display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+            <h3 style="margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-search"></i>
+                Buscar Temas
+            </h3>
+            <button class="panel-toggle" id="panelToggle" aria-label="Alternar panel" style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; padding: 5px;">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="panel-content" id="panelContent" style="background: white; padding: 20px;">
+            <div class="search-box" style="position: relative; width: 100%;">
+                <i class="fas fa-search" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
+                <input type="text" id="topicSearch" placeholder="Buscar por tema..." autocomplete="off" 
+                       style="width: 100%; padding: 12px 15px 12px 45px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 1rem; transition: all 0.3s ease;"
+                       onclick="event.stopPropagation()" onkeydown="event.stopPropagation()">
+            </div>
+        </div>
+    </div>
+
+    {{ content | safe }}
+
+    <!-- INLINE LESSON EDITOR -->
+    <div id="inlineEditorContainer" style="display: none; margin: 40px 0; padding: 30px; background: #f8fafc; border-radius: 15px; border: 2px solid #6366f1;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <h2 style="color: #6366f1; margin: 0; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-edit"></i>
+                Editar Lección
+            </h2>
+            <button id="cancelEditBtn" class="btn btn-secondary" style="display: flex; align-items: center; gap: 8px; font-size: 1.2rem;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <form id="inlineLessonForm">
+            <div style="margin-bottom: 20px;">
+                <label for="inlineLessonTitle" style="display: block; margin-bottom: 8px; font-weight: 600; color: #475569;">
+                    Título de la Lección
+                </label>
+                <input type="text" id="inlineLessonTitle" required 
+                       style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 1rem;">
+            </div>
+
+            <input type="hidden" id="inlineLessonId">
+
+            <div style="margin-bottom: 20px;">
+                <label for="inlineLessonDescription" style="display: block; margin-bottom: 8px; font-weight: 600; color: #475569;">
+                    Descripción (opcional)
+                </label>
+                <textarea id="inlineLessonDescription" rows="2" 
+                          style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #e2e8f0; font-size: 1rem; resize: vertical;"></textarea>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #475569;">
+                    Contenido de la Lección
+                </label>
+                <div id="inlineLessonContentEditor" style="min-height: 300px; background: white; border-radius: 8px; border: 2px solid #e2e8f0;"></div>
+            </div>
+
+            <div style="display: flex; gap: 15px; justify-content: center;">
+                <button type="submit" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px; font-size: 1.2rem;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="level-actions" style="margin-top: 60px; margin-bottom: 60px; text-align: center; padding: 20px; background: #f8fafc; border-radius: 15px; border: 1px solid #e2e8f0;">
+        <h3 style="margin-bottom: 15px; color: #475569; font-size: 1.1rem;">¿Quieres contribuir?</h3>
+        <a href="/Contribute/" id="createLessonBtn" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 30px; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <i class="fas fa-plus"></i>
+            Crear Nueva Lección
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('topicSearch');
+        const searchBox = document.querySelector('.search-box');
+        
+        // Function to stop propagation
+        function stop(e) { e.stopPropagation(); }
+        
+        // Prevent search input from closing the panel
+        if (searchInput) {
+            searchInput.addEventListener('click', stop);
+            searchInput.addEventListener('mousedown', stop);
+            searchInput.addEventListener('touchstart', stop);
+            searchInput.addEventListener('keydown', stop);
+        }
+        if (searchBox) {
+            searchBox.addEventListener('click', stop);
+            searchBox.addEventListener('mousedown', stop);
+            searchBox.addEventListener('touchstart', stop);
+        }
+
+        // Toggle Logic is now handled in nivel-common.js to avoid conflicts
+
+        // Detect current level from page URL and update contribute button
+        const createLessonBtn = document.getElementById('createLessonBtn');
+        if (createLessonBtn) {
+            // Extract level from current page path (e.g., /NivelA1.html -> A1)
+            const currentPath = window.location.pathname;
+            const levelMatch = currentPath.match(/Nivel([A-C][12])/i);
+            
+            if (levelMatch) {
+                const level = levelMatch[1].toUpperCase(); // A1, A2, B1, B2, or C1
+                // Update the href to include the level parameter
+                createLessonBtn.href = `/Contribute/?level=${level}`;
+                console.log(`✅ Contribute button updated for level: ${level}`);
+            }
+        }
+    });
+</script>
+
+    <!-- 4. Auth & page-specific -->
+    <script src="/js/nivel-common.js?v={{ timestamp }}"></script>
+    <script src="/js/lesson-editor.js?v={{ timestamp }}"></script>
+    <script src="/js/contribute.js?v={{ timestamp }}"></script>
+    <script src="/js/admin-contributions.js?v={{ timestamp }}"></script>

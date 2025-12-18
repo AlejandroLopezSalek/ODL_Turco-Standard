@@ -1,0 +1,308 @@
+/* ========================================
+   INDEX.CSS - FIXED VERSION
+   Removed conflicting transitions
+   ======================================== */
+
+/* Levels Grid */
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.level-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* REMOVED: transition: all 0.3s ease; */
+}
+
+.level-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.level-card.special {
+    border: 2px solid #4A90E2;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+.level-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.level-header h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.level-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+/* Dark mode styles for home page level cards */
+html.dark-mode .level-card {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .level-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border-color: #64748b;
+}
+
+html.dark-mode .level-card.special {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, rgba(55, 48, 163, 0.4) 100%);
+    border: 2px solid #818cf8;
+}
+
+html.dark-mode .level-header h3 {
+    color: #f1f5f9;
+}
+
+/* Dark mode button styles */
+html.dark-mode .level-actions .btn {
+    background: rgba(71, 85, 105, 0.3);
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    color: #e2e8f0;
+}
+
+html.dark-mode .level-actions .btn:hover {
+    background: rgba(100, 116, 139, 0.4);
+    border-color: #94a3b8;
+}
+
+/* Notice - SAFE transitions only on specific properties */
+.notice {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* SAFE: Only transition opacity, height, padding - NO width/font-size */
+    transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease !important;
+}
+
+.notice.hidden {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* Auth buttons */
+.auth-buttons span {
+    color: var(--primary-color, #007bff);
+    font-weight: 500;
+}
+
+.auth-buttons {
+    /* SAFE: Only transition opacity */
+    transition: opacity 0.3s ease !important;
+}
+
+/* Info Banner */
+.info-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+html.dark-mode .info-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #4c1d95 100%);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.banner-content>i {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
+}
+
+.banner-text {
+    flex: 1;
+    color: white;
+}
+
+.banner-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.banner-text p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.banner-content .btn-outline {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(10px);
+    flex-shrink: 0;
+}
+
+.banner-content .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: inherit;
+    text-decoration: none;
+    /* SAFE: Only transition color */
+    transition: color 0.3s ease !important;
+}
+
+.footer-links a:hover {
+    color: #667eea;
+}
+
+html.dark-mode .footer-links a:hover {
+    color: #818cf8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-content>i {
+        font-size: 2.5rem;
+    }
+
+    .banner-content .btn-outline {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .mobile-community-btn-container {
+        display: block !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-only-card {
+        display: none !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .level-card.mobile-only-card {
+        display: none !important;
+    }
+}
+
+/* Mobile Carousel Fixes */
+@media (max-width: 768px) {
+    .levels-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 20px;
+        /* Space for scrollbar if visible, or just padding */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scrolling on iOS */
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+    }
+
+    .levels-grid::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
+    }
+
+    .level-card {
+        min-width: 85%;
+        /* Show part of next card */
+        scroll-snap-align: center;
+        margin-bottom: 0;
+        /* Remove bottom margin in flex context */
+    }
+
+    /* Hide the dots/indicators on mobile as requested */
+    .carousel-indicators {
+        display: none !important;
+    }
+
+    /* Ensure the container doesn't overflow horizontally */
+    .levels-carousel-container {
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+/* Carousel Progress Bar */
+.carousel-progress-container {
+    display: none;
+    width: 100%;
+    padding: 10px 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-progress-track {
+    width: 100%;
+    max-width: 200px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+@media (max-width: 768px) {
+    .carousel-progress-container {
+        display: flex;
+    }
+
+    /* Hide dots */
+    .carousel-indicators {
+        display: none !important;
+    }
+}

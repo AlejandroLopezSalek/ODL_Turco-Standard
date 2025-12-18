@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('darkMode');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Si el usuario guardó 'enabled' O no guardó nada y prefiere oscuro,
+            // aplica la clase 'dark-mode' inmediatamente.
+            if (savedTheme === 'enabled' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        body.loaded { opacity: 1; }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Aprendizaje de Turco - TurkAmerica</title>
+    <link rel="icon" type="image/x-icon" href="/assets/TurkAmerica.ico">
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="stylesheet" href="/css/styles.css?v=custom_fix_css_1">
+    <link rel="stylesheet" href="/css/darkmode.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/mobile-visual-fixes.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/smooth-scroll-fixes.css">
+    <link rel="stylesheet" href="/css/mobile-nav.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/fix.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/custom-modal.css?v=5">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    {% if styles %}
+    {% for style in styles %}
+    <link rel="stylesheet" href="/css/{{ style }}?v={{ timestamp }}">
+    {% endfor %}
+    {% endif %}
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-title-row">
+                <h1 class="main-title">Turco para Latinos</h1>
+            </div>
+            <div class="header-nav-row">
+                <img src="/assets/logoTurkamerica.png" alt="TurkAmerica Logo" class="header-logo">
+                <div class="tabs">
+                    <a href="/" class="tab active"><i class="fas fa-home"></i>Inicio</a>
+                    <a href="/Consejos/" class="tab"><i class="fas fa-lightbulb"></i>Consejos</a>
+                    <a href="/Gramatica/" class="tab"><i class="fas fa-book"></i>Gramática</a>
+                    <a href="/Community-Lessons/" class="tab mobile-only-nav"><i class="fas fa-users"></i>Comunidad</a>
+                    <a href="/Admin-Contributions/" class="tab admin-tab" id="adminTab" style="display: none;"><i class="fas fa-shield-alt"></i>Admin</a>
+                    <button class="tab settings-tab" id="settingsTab" type="button"><i class="fas fa-cog"></i>Ajustes</button>
+                </div>
+            </div> 
+        </header>
+        
+       <div class="notice">
+    <i class="fas fa-info-circle"></i>
+    
+    <a href="/register/">Registrarme</a>
+    
+    <span style="margin: 0 4px;">/</span>
+
+    <span id="authButton">
+        <a href="/login/">Iniciar Sesión</a>
+    </span>
+</div>
+        <div class="content">
+            {{ content | safe }}
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links" style="margin: 10px 0;">
+                    <span>•</span>
+                    <a href="/Dashboard/">Sobre el Proyecto</a>
+                    <span>•</span>
+                    <a href="https://whydonate.com/fundraising/-apoya-mas-desarollos-para-nuestra-comunidad" target="_blank">Apoyar</a>
+                </div>
+                <span>•</span>
+                <p class="made-with">Hecho con <i class="fas fa-heart heart-icon"></i> para la comunidad latina por ODL</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="settings-overlay" id="settingsOverlay">
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h2>Configuración</h2>
+                <button class="close-btn" id="closeSettingsBtn"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <div class="settings-content">
+                <div class="setting-item">
+                    <div class="setting-icon"><i class="fas fa-user"></i></div>
+                    <div class="setting-content"> <h3>Perfil</h3>
+                         <p>Ver tu racha y datos</p>
+                    </div>
+                    <div class="setting-action">
+                        <a href="/Perfil/" class="btn btn-outline"><i class="fas fa-cog"></i></a>
+                    </div>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon"><i class="fas fa-moon"></i></div>
+                    <div class="setting-info">
+                        <h3>Modo Oscuro</h3>
+                        <p>Cambiar apariencia</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon"><i class="fas fa-bell"></i></div>
+                    <div class="setting-info">
+                        <h3>Notificaciones</h3>
+                        <p>Activar alertas</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notificationsToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon"><i class="fas fa-volume-up"></i></div>
+                    <div class="setting-info">
+                        <h3>Sonido</h3>
+                        <p>Efectos de sonido</p>
+                    </div>
+                    <label class="toggle-switch">
+                         <input type="checkbox" checked><span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon"><i class="fas fa-font"></i></div>
+                    <div class="setting-info">
+                        <h3>Tamaño Fuente</h3>
+                        <p>Ajustar texto</p>
+                    </div>
+                    <select class="setting-select">
+                        <option value="small">Pequeño</option>
+                        <option value="medium" selected>Medio</option>
+                        <option value="large">Grande</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <div class="setting-icon"><i class="fas fa-globe"></i></div>
+                    <div class="setting-info">
+                        <h3>Idioma</h3>
+                        <p>Español / Turco</p>
+                    </div>
+                    <select class="setting-select">
+                        <option value="es">Español</option>
+                        <option value="tr">Turco</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="settings-footer">
+                <button class="btn btn-secondary" id="resetSettingsBtn">Restaurar valores</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Confirmation Modal -->
+    <div class="custom-modal-overlay" id="customConfirmModal">
+        <div class="custom-modal">
+            <div class="custom-modal-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="custom-modal-content">
+                <h3 class="custom-modal-title">¿Estás seguro?</h3>
+                <p class="custom-modal-message">¿Restaurar todos los ajustes a valores predeterminados?</p>
+                <div class="custom-modal-actions">
+                    <button class="btn-modal-cancel" id="cancelResetBtn">Cancelar</button>
+                    <button class="btn-modal-confirm" id="confirmResetBtn">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/js/cache-manager.js?v={{ timestamp }}"></script>
+    
+    <script src="/js/general.js?v={{ timestamp }}"></script>
+    
+    <script src="/js/config.js?v={{ timestamp }}"></script>
+    <script src="/js/cache.js?v={{ timestamp }}"></script>
+    <script src="/js/loader.js?v={{ timestamp }}"></script>
+    <script src="/js/toast.js?v={{ timestamp }}"></script>
+    <script src="/js/analytics.js?v={{ timestamp }}"></script>
+    <script src="/js/search.js?v={{ timestamp }}"></script>
+    
+    <script src="/js/contribution-service.js?v={{ timestamp }}"></script>
+    <script src="/js/auth.js?v={{ timestamp }}"></script>
+    <script src="/js/index.js?v={{ timestamp }}"></script>
+    <script src="/js/app.js?v={{ timestamp }}"></script>
+
+    <script src="/js/settings-panel.js?v=custom_fix_3"></script>
+    
+    {% if scripts %}
+    {% for script in scripts %}
+    <script src="/js/{{ script }}?v={{ timestamp }}"></script>
+    {% endfor %}
+    {% endif %}
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

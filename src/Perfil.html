@@ -1,0 +1,198 @@
+---
+layout: base.njk
+styles:
+- perfil.css
+- streak.css
+- mobile-visual-fixes.css
+---
+
+
+<div class="profile-card">
+    <!-- Profile Header with Avatar -->
+    <div class="profile-header">
+        <div class="avatar-section">
+            <div class="avatar-container" title="Click para cambiar foto">
+                <i class="fas fa-user-circle"></i>
+                <button class="change-avatar-btn" title="Cambiar foto">
+                    <i class="fas fa-camera"></i>
+                </button>
+            </div>
+            <!-- Hidden file input -->
+            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+        </div>
+        <div class="profile-info">
+            <h2 id="userName">Cargando...</h2>
+            <p id="userEmail">email@ejemplo.com</p>
+            <span class="level-badge" id="userLevel">A1</span>
+        </div>
+    </div>
+
+    <!-- Streak Section -->
+    <div class="streak-section">
+        <h3>
+            <i class="fas fa-fire"></i>
+            Tu Racha
+        </h3>
+        <div class="streak-display-large">
+            <div class="streak-current">
+                <div class="streak-number" id="currentStreak">0</div>
+                <div class="streak-label">días actuales</div>
+            </div>
+            <div class="streak-stats">
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <div class="stat-content">
+                        <div class="stat-value" id="longestStreak">0</div>
+                        <div class="stat-label">Récord</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <div class="stat-content">
+                        <div class="stat-value" id="totalDays">0</div>
+                        <div class="stat-label">Total días</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-content">
+                        <div class="stat-value" id="lastActivity">Hoy</div>
+                        <div class="stat-label">Última actividad</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="streak-message" id="streakMessage"></div>
+    </div>
+
+
+
+    <!-- Preferences Section -->
+    <div class="preferences-section">
+        <h3>
+            <i class="fas fa-sliders-h"></i>
+            Preferencias
+        </h3>
+        <div class="preferences-carousel-container">
+            <div class="preferences-grid">
+                <div class="pref-item">
+                    <div class="pref-info">
+                        <i class="fas fa-moon"></i>
+                        <div>
+                            <h4>Tema Oscuro</h4>
+                            <p>Activar modo nocturno</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="darkModePref">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="pref-item">
+                    <div class="pref-info">
+                        <i class="fas fa-bell"></i>
+                        <div>
+                            <h4>Notificaciones</h4>
+                            <p>Recordatorios de estudio</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notificationsPref" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="pref-item">
+                    <div class="pref-info">
+                        <i class="fas fa-volume-up"></i>
+                        <div>
+                            <h4>Sonido</h4>
+                            <p>Efectos de audio</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="soundPref" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="pref-item">
+                    <div class="pref-info">
+                        <i class="fas fa-language"></i>
+                        <div>
+                            <h4>Idioma</h4>
+                            <p>Idioma de la interfaz</p>
+                        </div>
+                    </div>
+                    <select id="languagePref" class="pref-select">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                        <option value="tr">Türkçe</option>
+                    </select>
+                </div>
+
+                <div class="pref-item">
+                    <div class="pref-info">
+                        <i class="fas fa-font"></i>
+                        <div>
+                            <h4>Tamaño de Fuente</h4>
+                            <p>Ajustar legibilidad</p>
+                        </div>
+                    </div>
+                    <select id="fontSizePref" class="pref-select">
+                        <option value="small">Pequeño</option>
+                        <option value="medium" selected>Medio</option>
+                        <option value="large">Grande</option>
+                    </select>
+                </div>
+
+                <div class="pref-item">
+                    <div class="pref-info">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <h4>Meta Diaria</h4>
+                            <p>Minutos de estudio</p>
+                        </div>
+                    </div>
+                    <input type="number" id="dailyGoalPref" min="5" max="180" value="30" class="pref-input">
+                </div>
+            </div>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <script src="/js/carousel-universal.js?v=pref_fix_1"></script>
+                <script src="/js/perfil.js?v=auth_fix_final"></script>
+                <div class="carousel-indicator active"></div>
+                <div class="carousel-indicator"></div>
+                <div class="carousel-indicator"></div>
+                <div class="carousel-indicator"></div>
+                <div class="carousel-indicator"></div>
+                <div class="carousel-indicator"></div>
+            </div>
+        </div>
+
+        <button class="btn btn-secondary" id="savePreferencesBtn">
+            <i class="fas fa-save"></i>
+            Guardar Preferencias
+        </button>
+    </div>
+
+    <!-- Account Actions -->
+    <div class="account-actions">
+        <h3>
+            <i class="fas fa-shield-alt"></i>
+            Cuenta
+        </h3>
+        <div class="action-buttons">
+            <button class="btn btn-outline" id="changePasswordBtn">
+                <i class="fas fa-key"></i>
+                Cambiar Contraseña
+            </button>
+            <button class="btn btn-danger" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+---
+layout: base.njk
+styles:
+- index.css
+- gramatica.css
+- mobile-visual-fixes.css
+scripts:
+- gramatica.js
+- index.js
+---
+<section class="resources-section">
+    <h2 class="section-title">
+        <i class="fas fa-globe"></i>
+        Páginas de Internet
+    </h2>
+
+    <div class="resources-grid">
+        <div class="resource-category">
+            <h3 class="category-title">
+                <i class="fas fa-grammar"></i>
+                Gramática
+            </h3>
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <a href="https://quizlet.com" target="_blank" class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        Quizlet
+                    </a>
+                </li>
+                <li class="resource-item">
+                    <a href="https://elon.io/" target="_blank" class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        Elon
+                    </a>
+                </li>
+                <li class="resource-item">
+                    <a href="https://www.turkishtextbook.com/" target="_blank" class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        TurkishTextBook
+                    </a>
+                </li>
+                <li class="resource-item">
+                    <a href="https://hepturkce.com/" target="_blank" class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        HepTürkçe
+                    </a>
+                </li>
+                <li class="resource-item">
+                    <a href="https://lms.apitwist.com/course/index.php?categoryid=4&lang=en" target="_blank"
+                        class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        Apitwist
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="resource-category">
+            <h3 class="category-title">
+                <i class="fas fa-book-open"></i>
+                Diccionarios
+            </h3>
+            <ul class="resource-list">
+                <li class="resource-item">
+                    <a href="https://sozluk.gov.tr" target="_blank" class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        Sozluk.gov.tr
+                    </a>
+                </li>
+                <li class="resource-item">
+                    <a href="https://wordreference.com" target="_blank" class="resource-link">
+                        <i class="fas fa-external-link-alt"></i>
+                        WordReference
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div id="explanationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Explicación</h3>
+            <button class="close-modal" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="modalContent">
+            </div>
+        </div>
+    </div>
+</div>

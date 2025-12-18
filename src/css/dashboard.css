@@ -1,0 +1,596 @@
+/* Hero Dashboard */
+.hero-dashboard {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.hero-dashboard h2 {
+    font-size: 2.5rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+/* Mission Section */
+.mission-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mission-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.mission-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+}
+
+/* Features Dashboard */
+.features-dashboard {
+    margin-bottom: 50px;
+}
+
+.features-dashboard h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Developer Section */
+.developer-section {
+    margin-bottom: 50px;
+}
+
+.developer-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.developer-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dev-avatar {
+    flex-shrink: 0;
+}
+
+.dev-avatar i {
+    font-size: 8rem;
+    color: #667eea;
+}
+
+.dev-info h3 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.dev-title {
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.dev-bio {
+    font-size: 1rem;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.dev-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.dev-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f1f5f9;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.dev-stats .stat i {
+    color: #667eea;
+}
+
+/* Collaboration Section */
+.collaboration-section {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    color: #1e293b;
+}
+
+.collaboration-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #1e293b;
+}
+
+.collab-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #475569;
+}
+
+.collab-content i {
+    margin-top: 4px;
+    flex-shrink: 0;
+    color: #667eea;
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.roadmap-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.roadmap-timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -32px;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.timeline-item.completed .timeline-marker {
+    background: #10b981;
+}
+
+.timeline-item.in-progress .timeline-marker {
+    background: #f59e0b;
+}
+
+.timeline-item.planned .timeline-marker {
+    background: #6b7280;
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.timeline-content p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Support Project Section */
+.support-project-section {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.support-project-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.support-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #475569;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.donation-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.donation-icon {
+    font-size: 3rem;
+    color: #667eea;
+    flex-shrink: 0;
+}
+
+.donation-info h3 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.donation-benefits {
+    list-style: none;
+    padding: 0;
+}
+
+.donation-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #475569;
+    font-size: 1rem;
+}
+
+.donation-benefits i {
+    color: #667eea;
+    flex-shrink: 0;
+}
+
+.donate-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.donate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.donate-btn i {
+    font-size: 2rem;
+}
+
+.btn-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.btn-title {
+    font-size: 1.2rem;
+}
+
+.btn-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.support-thanks {
+    text-align: center;
+    font-size: 1rem;
+    color: #475569;
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-radius: 10px;
+}
+
+.support-thanks i {
+    color: #f59e0b;
+}
+
+/* Tech Stack */
+.tech-stack-section {
+    margin-bottom: 50px;
+}
+
+.tech-stack-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tech-item:hover {
+    transform: translateY(-5px);
+}
+
+.tech-item i {
+    font-size: 2.5rem;
+    color: #667eea;
+}
+
+.tech-item span {
+    font-size: 0.9rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.contact-section p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.contact-methods {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Credits Section */
+.credits-section {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.credits-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.credits-section p {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.credits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.credits-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #475569;
+    font-size: 1rem;
+}
+
+.credits-list i {
+    color: #10b981;
+    flex-shrink: 0;
+}
+
+/* Back to Top */
+.back-to-top-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .developer-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dev-avatar i {
+        font-size: 5rem;
+    }
+
+    .donation-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+/* Match Index Style - Glassmorphism Effect */
+.mission-section,
+.feature-card,
+.developer-card,
+.roadmap-section,
+.support-project-section,
+.credits-section,
+.tech-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(74, 144, 226, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.mission-section:hover,
+.feature-card:hover,
+.developer-card:hover,
+.tech-item:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+}

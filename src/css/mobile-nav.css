@@ -1,0 +1,316 @@
+/* Mobile Header & Nav Improvements (Blue Gradient & Stacked Nav) */
+
+@media (max-width: 768px) {
+
+    /* Header Container - Blue Gradient */
+    .header {
+        margin-bottom: 15px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
+        padding: 15px 10px;
+        border-bottom: none;
+        display: flex;
+        flex-direction: column !important;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Row 1: Title Only (Centered) */
+    .header-title-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-title {
+        display: block !important;
+        font-size: 1.1rem !important;
+        /* Minimalist size */
+        font-weight: 700;
+        color: white !important;
+        margin: 0;
+        text-align: center;
+        white-space: nowrap !important;
+        /* Force single line */
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Row 2: Nav Row (Logo Hidden + Tabs) */
+    .header-nav-row {
+        width: 100%;
+        display: block;
+        overflow: visible;
+    }
+
+    /* Hide Logo on Mobile */
+    .header-logo {
+        display: none !important;
+    }
+
+    /* Navigation Tabs - Horizontal Carousel (Center aligned if fit, scroll if not) */
+    .header .tabs {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        width: 100% !important;
+        padding: 5px 0 !important;
+        /* No side padding to maximize space */
+        gap: 2px !important;
+        /* Minimal gap */
+        justify-content: flex-start !important;
+        /* FIXES SCROLL BUG */
+        margin: 0 !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    /* Remove extra centering */
+    .header .tabs {
+        justify-content: flex-start !important;
+    }
+
+    .header .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .header .tab {
+        flex: 0 0 auto !important;
+        display: inline-flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 5px 8px !important;
+        /* Minimal padding */
+        min-width: auto !important;
+        /* Allow shrinking */
+        width: auto !important;
+        background: transparent !important;
+        border: none !important;
+        color: rgba(255, 255, 255, 0.95) !important;
+        text-decoration: none !important;
+        font-size: 0.75rem !important;
+        font-weight: 500 !important;
+        border-radius: 10px;
+        line-height: 1.1 !important;
+        transition: transform 0.2s ease;
+        margin: 0 2px !important;
+        /* Tiny margin */
+    }
+
+    .header .tab i {
+        font-size: 1.3rem !important;
+        /* Good size icon */
+        margin-bottom: 4px !important;
+        display: block !important;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
+
+    .header .tab i {
+        font-size: 1.4rem !important;
+        /* Larger icon */
+        margin-bottom: 6px !important;
+        display: block !important;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .header .tab.active {
+        background: rgba(255, 255, 255, 0.25) !important;
+        color: white !important;
+        transform: translateY(-2px);
+    }
+
+    html.dark-mode .header .tab.active {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+    }
+
+    /* Row 3: Auth Button - Big Pill Style */
+    .auth-buttons {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .auth-buttons a {
+        color: white !important;
+        text-decoration: none;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.25);
+        /* Lighter transparent bg */
+        padding: 12px 40px;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        width: 80%;
+        /* Make it wide */
+        max-width: 300px;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    .container {
+        padding-top: 0;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    .header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        /* Center content vertically */
+        padding: 20px 40px;
+        height: auto;
+        min-height: 160px;
+        /* Ensure height for absolute logo */
+        gap: 5px;
+        /* Minimal gap between Title and Tabs */
+        background: #4facfe !important;
+        background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
+        position: relative !important;
+        /* For absolute logo */
+    }
+
+    /* Row 1: Title (Centered) */
+    .header-title-row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0 !important;
+        /* No bottom margin */
+        z-index: 2;
+    }
+
+    .main-title {
+        display: block !important;
+        font-size: 2.8rem;
+        /* Slightly larger */
+        font-weight: 700;
+        color: white !important;
+        margin: 0;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Row 2: Nav Row (Tabs Only - Logo Absolute) */
+    .header-nav-row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center !important;
+        /* Force Center Tabs */
+        padding: 0;
+        gap: 0;
+        z-index: 2;
+    }
+
+    /* Logo Absolute Left - CORRECTED */
+    .header-logo {
+        display: block !important;
+        position: absolute !important;
+        left: 40px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        height: 140px !important;
+        width: auto !important;
+        margin: 0 !important;
+        z-index: 1;
+        /* No mix-blend-mode for transparent logo */
+    }
+
+    .header .tabs {
+        width: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        flex-wrap: wrap;
+        margin-top: 5px !important;
+        /* Slight spacing from title */
+    }
+
+    .header .tab {
+        flex: 0 1 auto !important;
+        padding: 10px 25px !important;
+        font-size: 1.1rem !important;
+        margin: 0 5px;
+    }
+
+    /* Row 3: Auth Button - Centered (Below Tabs) */
+    .auth-buttons {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 15px;
+        /* Space from tabs */
+        padding-bottom: 10px;
+        z-index: 2;
+    }
+
+    .auth-buttons a {
+        color: white !important;
+        text-decoration: none;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 10px 30px;
+        border-radius: 25px;
+        transition: background 0.3s ease;
+        font-size: 1rem;
+    }
+
+    .auth-buttons a:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* ========================================
+   DARK MODE OVERRIDES (Unified Colors)
+   ======================================== */
+html.dark-mode .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #4c1d95 100%) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Fix Logo Visibility in Dark Mode */
+html.dark-mode .header-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* Fix "Container" Separation Issue - Ensure container is transparent */
+html.dark-mode .level-actions {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Fix Button Styles - Ensure no dark background behind button and correct color */
+html.dark-mode .level-actions .btn {
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%) !important;
+    border-color: #4A90E2 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3) !important;
+    margin: 0 !important;
+    /* Reset margins just in case */
+}
+
+html.dark-mode .level-actions .btn:hover {
+    background: linear-gradient(135deg, #357ABD 0%, #2968A3 100%) !important;
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4) !important;
+}

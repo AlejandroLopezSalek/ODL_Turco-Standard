@@ -1,0 +1,516 @@
+/* ========================================
+   UNIVERSAL MOBILE CAROUSEL SYSTEM
+   ======================================== */
+
+/* Viewport base */
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+/* ========================================
+   DESKTOP - Grid Normal
+   ======================================== */
+@media (min-width: 769px) {
+
+    .carousel-indicators,
+    .swipe-hint,
+    .flashcard-section {
+        display: none !important;
+    }
+
+    .levels-grid,
+    .features-grid,
+    .tech-grid,
+    .screenshots-grid {
+        display: grid !important;
+        overflow: visible !important;
+    }
+
+    .level-card,
+    .feature-card,
+    .tech-item,
+    .screenshot-placeholder {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* REQUIRED: Override the above !important rule for mobile-only cards */
+    .level-card.mobile-only-card {
+        display: none !important;
+    }
+
+    /* Hide mobile-only nav item on desktop */
+    .mobile-only-nav {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   MOBILE - CAROUSEL SYSTEM
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Show Mobile Only Card */
+    .level-card.mobile-only-card {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        pointer-events: auto !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* === CAROUSEL CONTAINERS === */
+    .carousel-container,
+    .levels-carousel-container {
+        position: relative;
+        margin-bottom: 0px;
+        padding-bottom: 10px;
+        overflow: hidden;
+    }
+
+    /* === HORIZONTAL GRIDS === */
+    .carousel-container .levels-grid,
+    .carousel-container .features-grid,
+    .carousel-container .tech-grid,
+    .carousel-container .screenshots-grid,
+    .levels-carousel-container .levels-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        overflow-x: scroll !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        gap: 15px !important;
+        padding: 10px 20px 20px 20px !important;
+        margin: 0 -20px !important;
+        width: calc(100% + 40px) !important;
+
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        /* Fade edges */
+        -webkit-mask-image: linear-gradient(to right,
+                transparent 0px,
+                black 20px,
+                black calc(100% - 20px),
+                transparent 100%);
+        mask-image: linear-gradient(to right,
+                transparent 0px,
+                black 20px,
+                black calc(100% - 20px),
+                transparent 100%);
+    }
+
+    .carousel-container .levels-grid::-webkit-scrollbar,
+    .carousel-container .features-grid::-webkit-scrollbar,
+    .carousel-container .tech-grid::-webkit-scrollbar,
+    .carousel-container .screenshots-grid::-webkit-scrollbar,
+    .levels-carousel-container .levels-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* === HORIZONTAL CARDS === */
+    .carousel-container .levels-grid>.level-card:not(.special),
+    .levels-carousel-container .levels-grid>.level-card:not(.special) {
+        flex: 0 0 85%;
+        min-width: 280px;
+        max-width: 350px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        display: flex !important;
+        flex-direction: column;
+        min-height: 180px;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .carousel-container .features-grid>.feature-card {
+        flex: 0 0 85%;
+        min-width: 260px;
+        max-width: 320px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .carousel-container .tech-grid>.tech-item {
+        flex: 0 0 35%;
+        min-width: 110px;
+        max-width: 140px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    .carousel-container .screenshots-grid>.screenshot-placeholder {
+        flex: 0 0 60%;
+        min-width: 200px;
+        max-width: 250px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        display: flex !important;
+    }
+
+    /* Hide flashcard from carousel */
+    .levels-grid>.level-card.special,
+    .levels-carousel-container .levels-grid>.level-card.special {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        pointer-events: none !important;
+    }
+
+    /* === CAROUSEL INDICATORS REMOVED FOR PROGRESS BAR === */
+    .carousel-indicators {
+        display: none !important;
+    }
+
+    /* === SWIPE HINT === */
+    .swipe-hint {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.75rem;
+        font-weight: 400;
+        margin-top: 8px;
+        padding: 4px 12px;
+        animation: swipeAnimation 2s ease-in-out infinite;
+    }
+
+    .swipe-hint i {
+        font-size: 0.9rem;
+    }
+
+    @keyframes swipeAnimation {
+
+        0%,
+        100% {
+            transform: translateX(0);
+            opacity: 0.8;
+        }
+
+        50% {
+            transform: translateX(10px);
+            opacity: 1;
+        }
+    }
+
+    /* === FLASHCARD SECTION (SEPARATE) === */
+    .flashcard-section {
+        display: block !important;
+        padding: 0 15px;
+        margin-top: 15px;
+        margin-bottom: 100px;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+
+    .flashcard-section .level-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        pointer-events: all !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+    }
+
+    /* === DARK MODE === */
+    html.dark-mode .carousel-indicator {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    html.dark-mode .carousel-indicator.active {
+        background: rgba(129, 140, 248, 0.85);
+        box-shadow: 0 1px 3px rgba(129, 140, 248, 0.4);
+    }
+
+    html.dark-mode .swipe-hint {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* ========================================
+   MOBILE - GENERAL ADJUSTMENTS
+   ======================================== */
+@media (max-width: 768px) {
+
+    .container {
+        padding: 10px !important;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .content {
+        padding: 15px !important;
+        overflow-x: hidden;
+        max-width: 100%;
+    }
+
+    .header {
+        padding: 12px 15px !important;
+    }
+
+    .main-title {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .tabs {
+        flex-direction: column !important;
+        gap: 6px !important;
+        padding: 0 10px 10px !important;
+    }
+
+    .tab {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 10px 16px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .description {
+        padding: 15px !important;
+        margin: 0 0 15px 0 !important;
+        border-radius: 12px !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* === NOTICE - HIDE WHEN LOGGED IN === */
+    .notice {
+        padding: 10px 12px !important;
+        margin: 15px 0 !important;
+        font-size: 0.8rem !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    body.user-logged-in .notice,
+    .notice.hidden {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .level-card,
+    .feature-card {
+        padding: 20px 15px !important;
+        border-radius: 15px !important;
+    }
+
+    .level-header {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .level-header h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 6px;
+    }
+
+    .level-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100%;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .btn,
+    .btn-primary,
+    .btn-secondary {
+        width: 100% !important;
+        max-width: 280px !important;
+        padding: 12px 20px !important;
+        font-size: 0.95rem !important;
+        border-radius: 10px !important;
+    }
+
+    /* Fix for oversized Edit Button in Modal */
+    #modalEditBtn,
+    a#modalEditBtn {
+        width: auto !important;
+        display: inline-flex !important;
+        padding: 8px 15px !important;
+        margin: 0 10px 0 auto !important;
+        /* Push to right, keeping space */
+        flex-grow: 0 !important;
+    }
+
+    /* === MODALS === */
+    .modal-content {
+        width: calc(100vw - 30px) !important;
+        max-width: 100% !important;
+        margin: 15px !important;
+        max-height: 85vh !important;
+        border-radius: 15px !important;
+    }
+
+    .modal-header {
+        padding: 20px 15px !important;
+    }
+
+    .modal-body {
+        padding: 20px 15px !important;
+        max-height: calc(85vh - 140px) !important;
+        overflow-y: auto !important;
+    }
+
+    /* === FOOTER === */
+    .footer {
+        padding: 20px 15px !important;
+        margin-top: 30px !important;
+    }
+
+    .footer-content {
+        font-size: 0.9rem !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        text-align: center !important;
+    }
+
+    /* === SPACING === */
+    * {
+        margin-block-start: 0 !important;
+        margin-block-end: 0 !important;
+    }
+
+    .description+.levels-carousel-container {
+        margin-top: 0 !important;
+    }
+
+    .levels-carousel-container+.flashcard-section {
+        margin-top: 15px !important;
+    }
+}
+
+/* ========================================
+   VERY SMALL SCREENS
+   ======================================== */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.2rem !important;
+    }
+
+    .carousel-container .levels-grid>.level-card:not(.special),
+    .levels-carousel-container .levels-grid>.level-card:not(.special) {
+        flex: 0 0 90%;
+        min-width: 260px;
+    }
+
+    .carousel-container .features-grid>.feature-card {
+        flex: 0 0 90%;
+        min-width: 240px;
+    }
+}
+
+@media (max-width: 374px) {
+    .carousel-indicator {
+        width: 5px !important;
+        height: 5px !important;
+    }
+
+    .carousel-indicator.active {
+        width: 14px !important;
+        height: 5px !important;
+    }
+}
+
+/* ========================================
+   TOUCH IMPROVEMENTS
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+
+    .btn,
+    .tab,
+    .carousel-indicator {
+        min-height: 44px !important;
+    }
+}
+
+/* ========================================
+   SAFARI iOS FIXES
+   ======================================== */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+
+        .carousel-container .levels-grid,
+        .carousel-container .features-grid,
+        .carousel-container .tech-grid,
+        .carousel-container .screenshots-grid,
+        .levels-carousel-container .levels-grid {
+            -webkit-mask-image: -webkit-linear-gradient(left,
+                    rgba(0, 0, 0, 0) 0px,
+                    rgba(0, 0, 0, 1) 20px,
+                    rgba(0, 0, 0, 1) calc(100% - 20px),
+                    rgba(0, 0, 0, 0) 100%) !important;
+        }
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+@media (max-width: 768px) {
+    .carousel-indicator:focus {
+        outline: 2px solid #667eea;
+        outline-offset: 3px;
+    }
+
+    .btn:focus,
+    .tab:focus {
+        outline: 2px solid #667eea;
+        outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        .swipe-hint {
+            animation: none !important;
+        }
+    }
+}

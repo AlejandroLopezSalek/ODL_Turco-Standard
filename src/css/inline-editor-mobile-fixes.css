@@ -1,0 +1,249 @@
+/* ========================================
+   INLINE EDITOR MOBILE FIXES
+   ======================================== */
+
+/* === FIX: CONTAINER LAYOUT === */
+#inlineEditorContainer {
+    padding: 15px !important;
+    margin: 20px 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+/* Header layout fixes */
+#inlineEditorContainer>div:first-child {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 10px !important;
+}
+
+/* Title should take available space */
+#inlineEditorContainer h2 {
+    flex: 1 !important;
+    margin: 0 !important;
+    font-size: 1.2rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-width: 0 !important;
+}
+
+/* X button fixed positioning */
+#cancelEditBtn {
+    flex-shrink: 0 !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    font-size: 1.3rem !important;
+    margin: 0 !important;
+    position: relative !important;
+}
+
+#cancelEditBtn i {
+    font-size: 1.3rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* === FIX: TEXT OVERFLOW IN EDITOR === */
+#inlineLessonContentEditor {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    padding: 15px !important;
+}
+
+/* All text inside editor should wrap */
+#inlineLessonContentEditor * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+/* Tables inside editor */
+#inlineLessonContentEditor table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+    overflow-x: auto !important;
+    display: block !important;
+}
+
+#inlineLessonContentEditor td,
+#inlineLessonContentEditor th {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* === FIX: BOTTOM BUTTONS === */
+#inlineEditorContainer .form-actions,
+#inlineLessonForm>div:last-child {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    justify-content: flex-end !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-top: 20px !important;
+}
+
+/* Bottom buttons sizing */
+#cancelEditBtn2,
+#inlineLessonForm button[type="submit"] {
+    flex-shrink: 0 !important;
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+    font-size: 1.4rem !important;
+}
+
+/* === FIX: FORM INPUTS === */
+#inlineLessonTitle,
+#inlineLessonDescription {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 1rem !important;
+}
+
+/* === FIX: TOOLBAR WRAPPING === */
+.editor-toolbar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+}
+
+.editor-toolbar::-webkit-scrollbar {
+    display: none !important;
+}
+
+.toolbar-group {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+    border-right: 1px solid #e2e8f0 !important;
+    padding-right: 8px !important;
+    margin-right: 8px !important;
+}
+
+.toolbar-group:last-child {
+    border-right: none !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+
+.toolbar-btn {
+    flex-shrink: 0 !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+}
+
+
+/* === COMPACT MODE HEADER FIX === */
+@media (max-width: 768px) {
+    body.compact-mode .compact-header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 12px 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        gap: 10px !important;
+    }
+
+    .compact-header .compact-back-btn {
+        flex-shrink: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        font-size: 1.5rem !important;
+    }
+
+    .compact-header span {
+        flex: 1 !important;
+        text-align: center !important;
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        min-width: 0 !important;
+    }
+
+    .compact-header .btn-text {
+        flex-shrink: 0 !important;
+        width: 40px !important;
+        height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        font-size: 1.5rem !important;
+    }
+}
+
+/* === EXTRA SMALL SCREENS === */
+@media (max-width: 400px) {
+    #inlineEditorContainer h2 {
+        font-size: 1.1rem !important;
+    }
+
+    #cancelEditBtn,
+    .compact-header .compact-back-btn,
+    .compact-header .btn-text {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        min-height: 36px !important;
+        font-size: 1.2rem !important;
+    }
+
+    .compact-header span {
+        font-size: 1rem !important;
+    }
+
+    #cancelEditBtn2,
+    #inlineLessonForm button[type="submit"] {
+        width: 45px !important;
+        height: 45px !important;
+        min-width: 45px !important;
+        min-height: 45px !important;
+        font-size: 1.3rem !important;
+    }
+}
