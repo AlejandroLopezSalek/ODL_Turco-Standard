@@ -214,6 +214,189 @@
 }
 
 /* ========================================
+   MODAL BASE STYLES
+   ======================================== */
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999 !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+/* Modal Content Container */
+.modal-content {
+    background: white !important;
+    border-radius: 25px !important;
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh !important;
+    overflow: visible !important;
+    /* Changed from hidden to visible */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Header */
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+}
+
+.modal-header h3,
+#modalTitle {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white !important;
+}
+
+/* Close Button */
+.close-modal,
+#closeModalBtn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.close-modal:hover,
+#closeModalBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Modal Body */
+.modal-body,
+#modalContent {
+    padding: 25px;
+    overflow-y: auto !important;
+    max-height: calc(90vh - 120px) !important;
+    background: white !important;
+    color: #1e293b !important;
+}
+
+/* "Ver Explicación" Buttons */
+.grammar-card button,
+.grammar-card .btn,
+.explanation-btn,
+button[onclick*="openModal"],
+button[onclick*="Explicacion"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3) !important;
+}
+
+.grammar-card button:hover,
+.grammar-card .btn:hover,
+.explanation-btn:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Fix modal overflow - remove double scrollbar */
+.modal-content {
+    overflow: visible !important;
+}
+
+.modal-body,
+#modalContent {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* Tables in Modal */
+.modal-body table,
+#modalContent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.modal-body th,
+#modalContent th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.modal-body td,
+#modalContent td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #1e293b !important;
+    font-size: 0.9rem;
+}
+
+.modal-body tr:last-child td,
+#modalContent tr:last-child td {
+    border-bottom: none;
+}
+
+.modal-body tr:nth-child(even),
+#modalContent tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.modal-body tr:hover,
+#modalContent tr:hover {
+    background: #f1f5f9;
+}
+
+/* ========================================
    MODAL FIXES PARA NIVELES A1-C1
    Responsive y legible en móvil
    ======================================== */

@@ -63,14 +63,7 @@
     transform: scale(1);
 }
 
-html.dark-mode .custom-modal {
-    background: rgba(30, 41, 59, 0.9);
-    /* Dark blue/slate base */
-    box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
+
 
 .custom-modal-icon {
     width: 60px;
@@ -85,10 +78,7 @@ html.dark-mode .custom-modal {
     margin-bottom: 16px;
 }
 
-html.dark-mode .custom-modal-icon {
-    background: rgba(245, 158, 11, 0.2);
-    color: #fbbf24;
-}
+
 
 .custom-modal-title {
     font-size: 1.25rem;

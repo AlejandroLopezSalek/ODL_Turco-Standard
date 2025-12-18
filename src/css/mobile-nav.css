@@ -125,10 +125,7 @@
         transform: translateY(-2px);
     }
 
-    html.dark-mode .header .tab.active {
-        background: rgba(255, 255, 255, 0.2) !important;
-        color: white !important;
-    }
+    
 
     /* Row 3: Auth Button - Big Pill Style */
     .auth-buttons {
@@ -280,37 +277,4 @@
     }
 }
 
-/* ========================================
-   DARK MODE OVERRIDES (Unified Colors)
-   ======================================== */
-html.dark-mode .header {
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #4c1d95 100%) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
 
-/* Fix Logo Visibility in Dark Mode */
-html.dark-mode .header-logo {
-    filter: brightness(0) invert(1);
-}
-
-/* Fix "Container" Separation Issue - Ensure container is transparent */
-html.dark-mode .level-actions {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-}
-
-/* Fix Button Styles - Ensure no dark background behind button and correct color */
-html.dark-mode .level-actions .btn {
-    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%) !important;
-    border-color: #4A90E2 !important;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3) !important;
-    margin: 0 !important;
-    /* Reset margins just in case */
-}
-
-html.dark-mode .level-actions .btn:hover {
-    background: linear-gradient(135deg, #357ABD 0%, #2968A3 100%) !important;
-    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4) !important;
-}

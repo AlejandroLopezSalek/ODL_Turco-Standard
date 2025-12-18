@@ -47,6 +47,7 @@ async function getExplanations() {
 function closeModal() {
     const modal = document.getElementById('explanationModal');
     if (modal) {
+        modal.classList.remove('active');
         modal.style.display = 'none';
         document.getElementById('modalContent').innerHTML = '';
     }
@@ -64,6 +65,7 @@ async function openExplanation(topic) {
         title.textContent = explanations[topic].title;
         content.innerHTML = explanations[topic].content;
 
+        modal.classList.add('active');
         modal.style.display = 'flex';
 
         // Inject Edit Button AFTER modal is displayed
@@ -173,19 +175,40 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Agregar event listener al botón de cerrar modal
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-
-    // Click fuera del modal para cerrar
+    // Agregar event listener al botón de cerrar modal (usando delegación)
     const modal = document.getElementById('explanationModal');
     if (modal) {
         modal.addEventListener('click', function (e) {
+            console.log('Modal clicked:', e.target);
+
+            // Close if clicking the X button or its icon
+            const closeBtn = e.target.closest('#closeModalBtn');
+            const closeIcon = e.target.closest('.close-modal');
+
+            if (closeBtn || closeIcon || e.target.id === 'closeModalBtn' || e.target.classList.contains('close-modal')) {
+                console.log('Close button clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal();
+                return;
+            }
+
+            // Close if clicking outside modal content
             if (e.target.id === 'explanationModal') {
+                console.log('Clicked outside modal');
                 closeModal();
             }
+        });
+    }
+
+    // Also add direct listener as backup
+    const closeBtn = document.getElementById('closeModalBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+            console.log('Direct close button click');
+            e.preventDefault();
+            e.stopPropagation();
+            closeModal();
         });
     }
 

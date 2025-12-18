@@ -3,12 +3,12 @@
 // ========================================
 
 // Check authentication status on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize auth system
     if (typeof window.AuthService !== 'undefined') {
         checkAuthenticationStatus();
     }
-    
+
     // Check registration status and hide notice if user is registered/logged in
     updateUIBasedOnAuth();
 });
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function checkAuthenticationStatus() {
     const token = localStorage.getItem('authToken');
     const currentUser = localStorage.getItem('currentUser');
-    
+
     if (token && currentUser) {
         try {
             const user = JSON.parse(currentUser);
@@ -43,26 +43,26 @@ function updateUIBasedOnAuth() {
     const authButtonContainer = document.getElementById('authButton');
     const token = localStorage.getItem('authToken');
     const currentUserStr = localStorage.getItem('currentUser');
-    
+
     const isLoggedIn = token && currentUserStr;
-    
+
     // ADD/REMOVE BODY CLASS
     if (isLoggedIn) {
         document.body.classList.add('user-logged-in');
     } else {
         document.body.classList.remove('user-logged-in');
     }
-    
+
     if (isLoggedIn) {
         try {
             const currentUser = JSON.parse(currentUserStr);
-            
+
             // Hide the registration notice
             if (notice) {
                 notice.style.display = 'none';
                 notice.classList.add('hidden');
             }
-            
+
             // Update auth buttons - ONLY show welcome message, NO LOGOUT BUTTON
             if (authButtonContainer) {
                 authButtonContainer.innerHTML = `
@@ -71,10 +71,10 @@ function updateUIBasedOnAuth() {
                     </span>
                 `;
             }
-            
+
             // Enable flashcard generation button
             enableRegisteredUserFeatures();
-            
+
         } catch (error) {
             console.error('Error parsing user data:', error);
             showLoginState();
@@ -90,16 +90,16 @@ function updateUIBasedOnAuth() {
 function showLoginState() {
     const notice = document.querySelector('.notice');
     const authButtonContainer = document.getElementById('authButton');
-    
+
     // Remove logged-in class
     document.body.classList.remove('user-logged-in');
-    
+
     // Show registration notice
     if (notice) {
         notice.style.display = 'flex';
         notice.classList.remove('hidden');
     }
-    
+
     // Show login link
     if (authButtonContainer) {
         authButtonContainer.innerHTML = `
@@ -118,16 +118,16 @@ function handleLogout() {
     // Clear authentication data
     localStorage.removeItem('authToken');
     localStorage.removeItem('currentUser');
-    
+
     // Show logout message
     if (window.AppUtils && window.AppUtils.Notification) {
         window.AppUtils.Notification.success('Sesión cerrada correctamente');
     }
-    
+
     // Update UI
     setTimeout(() => {
         showLoginState();
-        
+
         // Reload page to reset state
         location.reload();
     }, 1000);
@@ -144,9 +144,10 @@ function enableRegisteredUserFeatures() {
             <i class="fas fa-mobile-alt"></i>
             Descarga la App
         `;
-        flashcardBtn.href = 'FlashcardinfoD.html';
+        // TODO: Fix flashcard page reference
+        // flashcardBtn.href = 'FlashcardinfoD.html';
         flashcardBtn.onclick = null;
-        
+
         // Remove any disabled attributes
         flashcardBtn.removeAttribute('disabled');
         flashcardBtn.style.opacity = '1';
@@ -159,14 +160,14 @@ function enableRegisteredUserFeatures() {
 // ========================================
 
 // Listen for storage changes (cross-tab synchronization)
-window.addEventListener('storage', function(e) {
+window.addEventListener('storage', function (e) {
     if (e.key === 'authToken' || e.key === 'currentUser') {
         updateUIBasedOnAuth();
     }
 });
 
 // Listen for authentication events
-window.addEventListener('authStateChanged', function(event) {
+window.addEventListener('authStateChanged', function (event) {
     if (event.detail && event.detail.isLoggedIn) {
         updateUIBasedOnAuth();
     } else {
@@ -177,7 +178,7 @@ window.addEventListener('authStateChanged', function(event) {
 // ========================================
 // CHECK AUTH ON VISIBILITY CHANGE
 // ========================================
-document.addEventListener('visibilitychange', function() {
+document.addEventListener('visibilitychange', function () {
     if (!document.hidden) {
         // Page became visible, check auth status
         updateUIBasedOnAuth();
