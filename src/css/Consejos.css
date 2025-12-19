@@ -106,16 +106,6 @@
     transform: scaleY(1);
 }
 
-.activity-item.completed {
-    background: linear-gradient(135deg, rgba(220, 252, 231, 0.8) 0%, rgba(187, 247, 208, 0.8) 100%);
-    border: 1px solid #bbf7d0;
-}
-
-.activity-item.completed .activity-icon {
-    background: #22c55e;
-    color: white;
-}
-
 .activity-item.current-activity {
     background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
     border: 2px solid #f59e0b;

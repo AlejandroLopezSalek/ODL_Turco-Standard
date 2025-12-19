@@ -108,10 +108,10 @@
         const originalIconClass = button?.dataset.originalIcon;
 
         if (isCompleted) {
-            // Mark entire activity item as completed with green background
+            // Mark as completed
             item.classList.add('completed');
-            item.style.backgroundColor = '#d1fae5'; // Light green background
-            item.style.borderLeft = '4px solid #22c55e'; // Green left border
+            item.style.backgroundColor = '#d1fae5';
+            item.style.borderLeft = '4px solid #22c55e';
 
             if (button) {
                 button.classList.add('completed');
@@ -119,10 +119,10 @@
             }
             if (icon) icon.className = 'fas fa-check';
         } else {
-            // Remove completion styling
+            // Remove completion - clear all inline styles
             item.classList.remove('completed');
-            item.style.backgroundColor = ''; // Reset to default
-            item.style.borderLeft = ''; // Reset border
+            item.style.backgroundColor = '';
+            item.style.borderLeft = '';
 
             if (button) {
                 button.classList.remove('completed');
