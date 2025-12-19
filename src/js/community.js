@@ -9,7 +9,7 @@ const booksData = {
     'A1': [
         {
             title: 'İstanbul A1 Ders Kitabı',
-            url: '/A1.pdf',
+            url: 'https://github.com/AlejandroLopezSalek/ODL_Turco-Standard/raw/main/A1.pdf',
             size: '~8 MB',
             pages: '104',
             description: 'Libro oficial de texto para nivel A1'
@@ -18,7 +18,7 @@ const booksData = {
     'A2': [
         {
             title: 'A2 Türkçe Kitabı',
-            url: '/A2.pdf',
+            url: 'https://github.com/AlejandroLopezSalek/ODL_Turco-Standard/raw/main/A2.pdf',
             size: '~10 MB',
             pages: '120',
             description: 'Libro de texto para nivel A2'
@@ -27,7 +27,7 @@ const booksData = {
     'B1': [
         {
             title: 'B1 Ders Kitabı',
-            url: '/B1.pdf',
+            url: 'https://github.com/AlejandroLopezSalek/ODL_Turco-Standard/raw/main/B1.pdf',
             size: '~12 MB',
             pages: '150',
             description: 'Libro de texto para nivel B1'
@@ -36,7 +36,7 @@ const booksData = {
     'B2': [
         {
             title: 'B2 Ders Kitabı',
-            url: '/B2.pdf',
+            url: 'https://github.com/AlejandroLopezSalek/ODL_Turco-Standard/raw/main/B2.pdf',
             size: '~14 MB',
             pages: '160',
             description: 'Libro de texto para nivel B2'
@@ -45,7 +45,7 @@ const booksData = {
     'C1': [
         {
             title: 'C1 Ders Kitabı',
-            url: '/C1.pdf',
+            url: 'https://github.com/AlejandroLopezSalek/ODL_Turco-Standard/raw/main/C1.pdf',
             size: '~15 MB',
             pages: '180',
             description: 'Libro de texto para nivel C1'
@@ -338,11 +338,15 @@ async function viewLesson(id) {
         </div>
     `;
 
-    document.getElementById('lessonModal').style.display = 'flex';
+    const modal = document.getElementById('lessonModal');
+    modal.classList.add('active');
+    modal.style.display = 'flex';
 }
 
 function closeLessonModal() {
-    document.getElementById('lessonModal').style.display = 'none';
+    const modal = document.getElementById('lessonModal');
+    modal.classList.remove('active');
+    modal.style.display = 'none';
 }
 
 function editPublishedLesson(id) {

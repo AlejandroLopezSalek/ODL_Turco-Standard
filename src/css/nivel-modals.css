@@ -673,3 +673,136 @@ button[onclick*="Explicacion"] {
         max-height: calc(95vh - 90px) !important;
     }
 }
+
+/* ========================================
+   DELETE CONFIRMATION MODAL
+   ======================================== */
+
+/* Ensure delete modal is centered */
+#deleteConfirmModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999 !important;
+    justify-content: center;
+    align-items: center;
+}
+
+#deleteConfirmModal.active,
+#deleteConfirmModal[style*="display: flex"] {
+    display: flex !important;
+}
+
+/* Delete modal content styling */
+#deleteConfirmModal .modal-content {
+    background: white !important;
+    border-radius: 20px !important;
+    max-width: 400px;
+    width: 90%;
+    padding: 0;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+#deleteConfirmModal .confirm-modal {
+    text-align: center;
+    padding: 0;
+}
+
+#deleteConfirmModal .modal-header+p {
+    padding: 20px 25px 0 25px;
+}
+
+#deleteConfirmModal .modal-actions {
+    padding: 0 25px 30px 25px;
+}
+
+#deleteConfirmModal .modal-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    padding: 20px !important;
+    border-radius: 20px 20px 0 0 !important;
+    justify-content: center;
+    margin-bottom: 0;
+    border: none !important;
+}
+
+#deleteConfirmModal h3 {
+    margin: 10px 0 0 0;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#deleteConfirmModal p {
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+#deleteConfirmModal .modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#deleteConfirmModal .btn-cancel,
+#deleteConfirmModal .btn-confirm {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 0.95rem;
+}
+
+#deleteConfirmModal .btn-cancel {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+#deleteConfirmModal .btn-cancel:hover {
+    background: #d1d5db;
+}
+
+#deleteConfirmModal .btn-confirm {
+    background: #ef4444;
+    color: white;
+}
+
+#deleteConfirmModal .btn-confirm:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    #deleteConfirmModal .modal-content {
+        max-width: calc(100vw - 40px);
+        margin: 20px;
+    }
+
+    #deleteConfirmModal .confirm-modal {
+        padding: 25px 20px;
+    }
+
+    #deleteConfirmModal h3 {
+        font-size: 1.2rem;
+    }
+
+    #deleteConfirmModal .modal-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #deleteConfirmModal .btn-cancel,
+    #deleteConfirmModal .btn-confirm {
+        width: 100%;
+    }
+}

@@ -13,16 +13,22 @@ body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
 }
 
+/* Container top spacing to show background */
+.container {
+    padding-top: 10px !important;
+}
+
 /* 1. HEADER LAYOUT (Logo LEFT, Tabs RIGHT - Horizontal Row) */
 
 /* Add white background container */
 .header {
-
     border-radius: 25px !important;
     margin: 15px 15px 0 15px !important;
-    /* No bottom margin - touch yellow bar */
+    /* Top and side margins, no bottom - stays connected to notice bar */
     padding: 20px !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+    overflow: hidden !important;
+    /* Prevent content from extending beyond rounded borders */
 }
 
 .header-nav-row {
@@ -86,17 +92,18 @@ body {
 .notice {
     justify-content: center !important;
     text-align: center !important;
-    padding: 14px 20px !important;
+    padding: 12px 20px !important;
     font-size: 1rem !important;
     font-weight: 600 !important;
-    min-height: 50px !important;
+    min-height: auto !important;
     display: flex !important;
     align-items: center !important;
     width: calc(100% - 30px) !important;
     /* Match header margins */
     margin: 0 15px !important;
+    /* No bottom margin - stays connected to header */
     border-radius: 15px !important;
-    /* Rounded notice bar */
+    /* Rounded notice bar to match header */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
 }
 
@@ -225,6 +232,29 @@ body {
 
 /* 12. Mobile Adjustments - SQUARE TABS */
 @media (max-width: 768px) {
+
+    /* Remove container padding on mobile */
+    .container {
+        padding-top: 0 !important;
+    }
+
+    /* Full-width header on mobile - no rounded corners or margins */
+    .header {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 15px !important;
+        box-shadow: none !important;
+    }
+
+    /* Full-width notice bar on mobile */
+    .notice {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 12px 15px !important;
+        box-shadow: none !important;
+    }
+
     .header-nav-row {
         flex-direction: column !important;
         align-items: center !important;
@@ -243,4 +273,149 @@ body {
     .header .tab {
         border-radius: 12px !important;
     }
+}
+
+/* ========================================
+   13. CONSEJOS & MODAL IMPROVEMENTS
+   ======================================== */
+
+/* Center section titles in Consejos */
+.section-title {
+    text-align: center !important;
+    justify-content: center !important;
+}
+
+/* Zoom lesson content - Professional and balanced */
+.modal-content {
+    font-size: 1.1rem !important;
+}
+
+.lesson-content,
+.lesson-content p,
+.lesson-content li {
+    font-size: 1.2rem !important;
+    line-height: 1.6 !important;
+}
+
+.modal-content h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 12px !important;
+}
+
+.modal-content h4 {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+}
+
+.detail-item strong {
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.detail-item span {
+    font-size: 1.1rem !important;
+}
+
+/* Zoom table content - Professional */
+.lesson-content table,
+.modal-content table {
+    font-size: 1.1rem !important;
+}
+
+.lesson-content table th,
+.modal-content table th {
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    padding: 10px !important;
+}
+
+.lesson-content table td,
+.modal-content table td {
+    font-size: 1.1rem !important;
+    padding: 8px !important;
+    line-height: 1.5 !important;
+}
+
+.lesson-content table code,
+.modal-content table code {
+    font-size: 1rem !important;
+}
+
+/* ========================================
+   14. CUSTOM CONFIRM MODAL
+   ======================================== */
+
+.custom-confirm-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-confirm-overlay.active {
+    display: flex;
+}
+
+.custom-confirm-modal {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.custom-confirm-modal h3 {
+    color: #1f2937;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.custom-confirm-modal p {
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.custom-confirm-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.custom-confirm-buttons button {
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-confirm-cancel {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.btn-confirm-cancel:hover {
+    background: #e5e7eb;
+}
+
+.btn-confirm-ok {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-confirm-ok:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }

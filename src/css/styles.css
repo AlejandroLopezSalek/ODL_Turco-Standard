@@ -1011,7 +1011,21 @@ html {
    4. DIFFICULTY BADGES - ORIGINAL COLORS
    ======================================== */
 
-/* BÃSICO - Green (Original) */
+/* Base difficulty badge styling */
+.difficulty-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* BÁSICO - Green (Original) */
 .difficulty-badge.beginner {
     background: #d4edda;
     color: #155724;
@@ -1687,18 +1701,7 @@ body {
     }
 }
 
-/* ==================================================================
-   SMOOTH SCROLL FIXES
-   ================================================================== */
 
-/* ========================================
-   SMOOTH SCROLL & WHITE BOX FIXES
-   Fixes for carousel scroll and white boxes in dashboard/consejos
-   ======================================== */
-
-/* ========================================
-   1. SMOOTH SCROLL FOR LEVEL CAROUSEL
-   ======================================== */
 
 /* Enable smooth scrolling globally */
 html {
@@ -2299,7 +2302,7 @@ html {
     }
 }
 
-/* === PANTALLAS ULTRA PEQUEÃƒâ€˜AS === */
+
 @media (max-width: 374px) {
     .carousel-indicator {
         width: 4px !important;
@@ -2315,7 +2318,7 @@ html {
         min-height: 4px !important;
     }
 
-    /* Spacing aÃƒÂºn mÃƒÂ¡s compacto en pantallas pequeÃƒÂ±as */
+
     .hero-dashboard,
     .hero-section,
     .mission-section,
@@ -2358,7 +2361,7 @@ html {
     }
 }
 
-/* === ASEGURAR QUE NO HAY PSEUDOELEMENTOS CREANDO LÃƒ NEAS === */
+
 @media (max-width: 768px) {
 
     .carousel-container,
