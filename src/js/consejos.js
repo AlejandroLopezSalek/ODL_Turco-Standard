@@ -108,14 +108,22 @@
         const originalIconClass = button?.dataset.originalIcon;
 
         if (isCompleted) {
+            // Mark as completed
             item.classList.add('completed');
+            item.style.backgroundColor = '#d1fae5';
+            item.style.borderLeft = '4px solid #22c55e';
+
             if (button) {
                 button.classList.add('completed');
                 button.style.backgroundColor = '#22c55e';
             }
             if (icon) icon.className = 'fas fa-check';
         } else {
+            // Remove completion - clear all inline styles
             item.classList.remove('completed');
+            item.style.backgroundColor = '';
+            item.style.borderLeft = '';
+
             if (button) {
                 button.classList.remove('completed');
                 button.style.backgroundColor = '#4f46e5';

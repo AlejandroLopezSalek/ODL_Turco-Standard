@@ -18,12 +18,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("public");
     eleventyConfig.addPassthroughCopy("icons");
     eleventyConfig.addPassthroughCopy("images");
-    eleventyConfig.addPassthroughCopy("manifest.json");
+    eleventyConfig.addPassthroughCopy({ "src/manifest.json": "manifest.json" });
     eleventyConfig.addPassthroughCopy("favicon.ico");
 
-    // If fix.css exists in src/css, it should be covered by existing rule, 
-    // but if it's missing, we need to check. 
-    // Assuming standard structure for now.
+
 
 
 

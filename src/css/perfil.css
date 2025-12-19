@@ -522,9 +522,7 @@
         transition: all 0.3s ease;
     }
 
-    .dark-mode .carousel-indicator {
-        background: rgba(255, 255, 255, 0.2);
-    }
+    
 
     .carousel-indicator.active {
         background: var(--primary-color, #667eea);
@@ -546,9 +544,7 @@
     text-align: center;
 }
 
-html.dark-mode .pref-info i {
-    color: #BB86FC;
-}
+
 
 .action-buttons {
     display: flex;

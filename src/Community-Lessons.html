@@ -4,6 +4,7 @@ styles:
 - Communit-lessons.css
 - contribute.css
 - lesson-editor.css
+- nivel-modals.css
 scripts:
 - contribution-service.js
 - community.js
@@ -74,18 +75,20 @@ scripts:
 <!-- Delete Confirmation Modal -->
 <div class="modal" id="deleteConfirmModal">
     <div class="modal-content confirm-modal" style="max-width: 400px; text-align: center;">
-        <div class="modal-header" style="justify-content: center; border: none; padding-bottom: 5px;">
-            <div style="width: 60px; height: 60px; background: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+        <div class="modal-header" style="flex-direction: column; align-items: center;">
+            <div
+                style="width: 60px; height: 60px; background: rgba(239, 68, 68, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
                 <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #ef4444;"></i>
             </div>
+            <h3 style="margin: 0; color: white;">¿Eliminar Lección?</h3>
         </div>
-        <h3 style="margin-bottom: 10px; color: #1f2937;">¿Eliminar Lección?</h3>
         <p style="color: #6b7280; margin-bottom: 25px;">
             Esta acción no se puede deshacer. La lección se eliminará permanentemente.
         </p>
         <div class="modal-actions" style="justify-content: center; gap: 15px;">
             <button class="btn-cancel" onclick="closeDeleteModal()" style="padding: 10px 20px;">Cancelar</button>
-            <button id="confirmDeleteBtn" class="btn-confirm" style="background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;">
+            <button id="confirmDeleteBtn" class="btn-confirm"
+                style="background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;">
                 Sí, Eliminar
             </button>
         </div>

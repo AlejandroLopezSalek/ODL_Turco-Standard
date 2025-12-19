@@ -639,47 +639,7 @@
     color: var(--text-primary);
 }
 
-html.dark-mode .contribution-cta {
-    background: var(--bg-card);
-    border-color: var(--border-color);
-}
 
-html.dark-mode .contribution-cta h3 {
-    color: var(--text-primary);
-}
-
-/* Dark Mode Overrides for Community Page */
-html.dark-mode .community-controls {
-    background: var(--bg-card);
-    border-color: var(--border-color);
-}
-
-html.dark-mode .filter-tab {
-    background: var(--bg-secondary);
-    border-color: var(--border-color);
-    color: var(--text-secondary);
-}
-
-html.dark-mode .filter-tab:hover {
-    border-color: var(--accent-blue);
-    color: var(--accent-blue);
-}
-
-html.dark-mode .filter-tab.active {
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-hover) 100%);
-    color: white;
-    border-color: transparent;
-}
-
-html.dark-mode .search-container input {
-    background: var(--input-bg);
-    color: var(--text-primary);
-    border-color: var(--border-color);
-}
-
-html.dark-mode .search-container input:focus {
-    border-color: var(--accent-blue);
-}
 
 /* HIGH PRIORITY MOBILE FIX for Edit Button */
 @media (max-width: 768px) {

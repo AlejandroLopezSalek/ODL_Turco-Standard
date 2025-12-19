@@ -50,38 +50,7 @@
     align-items: center;
 }
 
-/* Dark mode styles for home page level cards */
-html.dark-mode .level-card {
-    background: rgba(30, 41, 59, 0.95);
-    border: 1px solid rgba(71, 85, 105, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
 
-html.dark-mode .level-card:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    border-color: #64748b;
-}
-
-html.dark-mode .level-card.special {
-    background: linear-gradient(135deg, rgba(30, 64, 175, 0.3) 0%, rgba(55, 48, 163, 0.4) 100%);
-    border: 2px solid #818cf8;
-}
-
-html.dark-mode .level-header h3 {
-    color: #f1f5f9;
-}
-
-/* Dark mode button styles */
-html.dark-mode .level-actions .btn {
-    background: rgba(71, 85, 105, 0.3);
-    border: 1px solid rgba(100, 116, 139, 0.3);
-    color: #e2e8f0;
-}
-
-html.dark-mode .level-actions .btn:hover {
-    background: rgba(100, 116, 139, 0.4);
-    border-color: #94a3b8;
-}
 
 /* Notice - SAFE transitions only on specific properties */
 .notice {
@@ -122,9 +91,7 @@ html.dark-mode .level-actions .btn:hover {
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
-html.dark-mode .info-banner {
-    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #4c1d95 100%);
-}
+
 
 .banner-content {
     display: flex;
@@ -190,9 +157,7 @@ html.dark-mode .info-banner {
     color: #667eea;
 }
 
-html.dark-mode .footer-links a:hover {
-    color: #818cf8;
-}
+
 
 /* Responsive */
 @media (max-width: 768px) {

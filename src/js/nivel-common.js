@@ -43,14 +43,21 @@ async function getExplanations() {
     }
 }
 
-// Función para cerrar el modal
-function closeModal() {
+// Función para cerrar el modal - GLOBAL para sobrescribir gramatica.js
+window.closeModal = function () {
+    console.log('✅ closeModal() from nivel-common.js');
     const modal = document.getElementById('explanationModal');
     if (modal) {
+        modal.classList.remove('active');
         modal.style.display = 'none';
-        document.getElementById('modalContent').innerHTML = '';
+        modal.style.setProperty('display', 'none', 'important');
+        console.log('✅ Modal closed');
+        setTimeout(() => {
+            const modalContent = document.getElementById('modalContent');
+            if (modalContent) modalContent.innerHTML = '';
+        }, 100);
     }
-}
+};
 
 // Función para abrir explicaciones
 async function openExplanation(topic) {
@@ -64,6 +71,7 @@ async function openExplanation(topic) {
         title.textContent = explanations[topic].title;
         content.innerHTML = explanations[topic].content;
 
+        modal.classList.add('active');
         modal.style.display = 'flex';
 
         // Inject Edit Button AFTER modal is displayed
@@ -115,6 +123,22 @@ async function openExplanation(topic) {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', function () {
+    // Define closeModal AQUÍ para sobrescribir gramatica.js que se carga antes
+    window.closeModal = function () {
+        console.log('✅ closeModal() from nivel-common.js');
+        const modal = document.getElementById('explanationModal');
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+            modal.style.setProperty('display', 'none', 'important');
+            console.log('✅ Modal closed');
+            setTimeout(() => {
+                const modalContent = document.getElementById('modalContent');
+                if (modalContent) modalContent.innerHTML = '';
+            }, 100);
+        }
+    };
+
     const panel = document.getElementById('topicsPanel');
     const panelToggle = document.getElementById('panelToggle');
     const searchInput = document.getElementById('topicSearch');
@@ -173,19 +197,40 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Agregar event listener al botón de cerrar modal
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-
-    // Click fuera del modal para cerrar
+    // Agregar event listener al botón de cerrar modal (usando delegación)
     const modal = document.getElementById('explanationModal');
     if (modal) {
         modal.addEventListener('click', function (e) {
+            console.log('Modal clicked:', e.target);
+
+            // Close if clicking the X button, its icon, or anywhere inside the button
+            const closeBtn = e.target.closest('#closeModalBtn') || e.target.closest('.close-modal');
+            const isCloseIcon = e.target.classList.contains('fa-times');
+
+            if (closeBtn || isCloseIcon || e.target.id === 'closeModalBtn' || e.target.classList.contains('close-modal')) {
+                console.log('Close button clicked!');
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal();
+                return;
+            }
+
+            // Close if clicking outside modal content
             if (e.target.id === 'explanationModal') {
+                console.log('Clicked outside modal');
                 closeModal();
             }
+        });
+    }
+
+    // Also add direct listener as backup
+    const closeBtn = document.getElementById('closeModalBtn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+            console.log('Direct close button click');
+            e.preventDefault();
+            e.stopPropagation();
+            closeModal();
         });
     }
 

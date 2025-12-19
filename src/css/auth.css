@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 body.auth-page {
@@ -16,7 +16,7 @@ body.auth-page {
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .auth-card h1 {
@@ -139,55 +139,18 @@ body.auth-page {
     text-decoration: underline;
 }
 
-/* Dark mode support for auth pages */
-html.dark-mode .auth-card {
-    background: #2d3748;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
 
-html.dark-mode .auth-card h1 {
-    color: #e2e8f0;
-}
-
-html.dark-mode .form-group label {
-    color: #cbd5e0;
-}
-
-html.dark-mode .form-group input {
-    background: #1a202c;
-    border-color: #4a5568;
-    color: #e2e8f0;
-}
-
-html.dark-mode .form-group input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
-}
-
-html.dark-mode .form-group input::placeholder {
-    color: #718096;
-}
-
-html.dark-mode .auth-card p {
-    color: #a0aec0;
-}
-
-html.dark-mode .error-message {
-    background: #742a2a;
-    color: #fc8181;
-    border-color: #c53030;
-}
 
 /* Responsive */
 @media (max-width: 480px) {
     .auth-container {
         padding: 15px;
     }
-    
+
     .auth-card {
         padding: 25px 20px;
     }
-    
+
     .auth-card h1 {
         font-size: 24px;
         margin-bottom: 25px;

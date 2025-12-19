@@ -10,9 +10,9 @@ layout: base.njk
     
     <link rel="stylesheet" href="/css/styles.css?v={{ timestamp }}">
     <link rel="stylesheet" href="/css/darkmode.css?v={{ timestamp }}">
-    <link rel="stylesheet" href="/css/smooth-scroll-fixes.css">
-    
-    <link rel="stylesheet" href="/css/fix.css?v={{ timestamp }}">
+    <link rel="stylesheet" href="/css/nivel-modals.css?v={{ timestamp }}">
+ 
+  
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -141,6 +141,21 @@ layout: base.njk
         }
     });
 </script>
+
+<!-- EXPLANATION MODAL -->
+<div id="explanationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">Explicación</h3>
+            <button class="close-modal" id="closeModalBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="modalContent"></div>
+        </div>
+    </div>
+</div>
 
     <!-- 4. Auth & page-specific -->
     <script src="/js/nivel-common.js?v={{ timestamp }}"></script>
