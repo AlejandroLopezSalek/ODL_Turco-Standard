@@ -232,18 +232,23 @@
 }
 
 .modal.active {
-    display: flex;
+    display: flex !important;
+}
+
+/* Ensure modal is hidden when not active */
+.modal:not(.active) {
+    display: none !important;
 }
 
 /* Modal Content Container */
 .modal-content {
     background: white !important;
     border-radius: 25px !important;
-    max-width: 800px;
+    max-width: 900px;
     width: 90%;
-    max-height: 90vh !important;
-    overflow: visible !important;
-    /* Changed from hidden to visible */
+    max-height: 95vh !important;
+    overflow: hidden !important;
+    /* Hidden to prevent double scrollbar - only modal-body scrolls */
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease;
     display: flex;
@@ -272,6 +277,8 @@
     align-items: center;
     border-top-left-radius: 25px !important;
     border-top-right-radius: 25px !important;
+    position: relative;
+    z-index: 5;
 }
 
 .modal-header h3,
@@ -297,6 +304,8 @@
     justify-content: center;
     transition: all 0.3s ease;
     font-size: 1.2rem;
+    pointer-events: auto !important;
+    z-index: 10 !important;
 }
 
 .close-modal:hover,
@@ -306,13 +315,20 @@
 }
 
 /* Modal Body */
-.modal-body,
-#modalContent {
+.modal-body {
     padding: 25px;
     overflow-y: auto !important;
-    max-height: calc(90vh - 120px) !important;
+    max-height: calc(95vh - 120px) !important;
     background: white !important;
     color: #1e293b !important;
+}
+
+/* Modal Content - NO OVERFLOW (prevents double scrollbar) */
+#modalContent {
+    padding: 0;
+    overflow: visible !important;
+    background: transparent !important;
+    color: inherit !important;
 }
 
 /* "Ver Explicación" Buttons */
@@ -341,15 +357,7 @@ button[onclick*="Explicacion"] {
 }
 
 /* Fix modal overflow - remove double scrollbar */
-.modal-content {
-    overflow: visible !important;
-}
-
-.modal-body,
-#modalContent {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-}
+/* Removed duplicate rule - see lines 312-327 above */
 
 /* Tables in Modal */
 .modal-body table,
@@ -408,12 +416,12 @@ button[onclick*="Explicacion"] {
 
 .modal-content {
     max-width: 95vw !important;
-    max-height: 90vh !important;
+    max-height: 95vh !important;
 }
 
 .modal-body {
     overflow-y: auto !important;
-    max-height: calc(90vh - 120px) !important;
+    max-height: calc(95vh - 120px) !important;
 }
 
 /* === RESPONSIVE PARA MÓVIL === */
